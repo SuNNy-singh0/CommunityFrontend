@@ -1,0 +1,69 @@
+
+
+#createroom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #6dd5ed;
+}
+.createroombox{
+background-color: whitesmoke;
+padding: 20px;
+width: 30vw;
+border-radius: 7px;
+}
+#chatpagepart1{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ 
+  background-color: #2c3e50;
+  color: white;
+  height: 8vh;
+  padding: 7px 20px;
+  width: 100%;
+  position: fixed;
+}
+.lastbox{
+  width: 90% !important;
+  height: 10vh !important;
+  padding: 10px 20px !important;
+  margin: 0 5vw;
+  top: 78.5%;
+  border-radius: 10px;
+}
+.lastinput{
+  text-align: center;
+}
+.centerchatpart{
+  padding: 10vh 20px;
+}
+#single-message{
+  border: 1px solid gray;
+  width: fit-content;
+  padding: 3px 10px;
+  margin: 10px;
+  border-radius: 7px;
+  display: flex;
+}
+#avatar{
+  width: 50px;
+  height: 50px;
+  /* border: 0.5px solid black; */
+  padding: 4px;
+}
+.messagecontainer{
+  display: flex;
+
+}
+.sender{
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: darkblue;
+}
+.content{
+  font-size: 1rem;
+  text-transform: capitalize;
+}
