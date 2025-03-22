@@ -8,6 +8,7 @@ import Login from './component/Login';
 import CommunityMain from './component/CommunityMain';
 import Connect from './component/Connect';
 import Mainpage from './component/Mainpage/Mainpage';
+import UserProfile from './component/UserProfile/UserProfile';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -23,6 +24,7 @@ function App() {
           {/* Route to chat page */}
           <Route path='/chat/:username/:userid' element={<ChatPage />} />
           <Route path='/' element={<Mainpage />} />
+          <Route path='/profile' element={<UserProfile/>} />
         </Routes>
       </BrowserRouter>
     </>
