@@ -7,10 +7,13 @@ import FAQ from './FAQ'
 import Footer from './Footer'
 import JobBanner from '../JobProfile/JobBanner'
 
+import MCQPage from '../MCQ/MCQpage'
+
 function Mainpage() {
   return (
     <>
      <Upperbanner/>
+     <MCQPage/>
      <Stay/>
      <Community/>
      <JobBanner/>

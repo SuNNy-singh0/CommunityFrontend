@@ -4,113 +4,191 @@ import './Mainpage.css';
 import axios from 'axios';
 
 function Stay() {
-    const [contest, setContest] = useState(null);
+    const [contests, setContests] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [timeLeft, setTimeLeft] = useState({ hours: "00", minutes: "00", seconds: "00" });
+    const [contestTimers, setContestTimers] = useState({});
 
     useEffect(() => {
-        // Fetch contest details using Axios
-        axios.get("http://localhost:8080/contests/all") // Adjust API as per your backend
-            .then(response => {
-                setContest(response.data);
+        const fetchContests = async () => {
+            try {
+                const response = await axios.get("http://localhost:8080/contests/all");
+                console.log('Contests data received:', response.data);
+                
+                if (response.data && response.data.length > 0) {
+                    setContests(response.data);
+                    // Initialize timers for each contest
+                    const timers = {};
+                    response.data.forEach(contest => {
+                        if (contest.date && contest.time) {
+                            const eventDate = new Date(`${contest.date}T${contest.time}`);
+                            if (!isNaN(eventDate.getTime())) {
+                                timers[contest.id] = {
+                                    timeLeft: { hours: "00", minutes: "00", seconds: "00" },
+                                    status: null
+                                };
+                                initializeTimer(eventDate, contest.id);
+                            }
+                        }
+                    });
+                    setContestTimers(timers);
+                } else {
+                    setError("No contests available");
+                }
                 setLoading(false);
-                initializeTimer(response.data.date, response.data.time);
-            })
-            .catch(error => {
-                console.error("Error fetching contest:", error);
-                setError(error.response?.data || "Failed to fetch contest details.");
+            } catch (error) {
+                console.error("Error fetching contests:", error);
+                setError(error.message || "Failed to fetch contest details");
                 setLoading(false);
-            });
-        
-    }, []);
-   
-    // Initialize countdown timer
-    const initializeTimer = (date, time) => {
-        const eventDate = new Date(`${date}T${time}:00+05:30`).getTime();
+            }
+        };
 
+        fetchContests();
+        
+        // Cleanup timers on unmount
+        return () => {
+            Object.values(contestTimers).forEach(timer => {
+                if (timer.interval) {
+                    clearInterval(timer.interval);
+                }
+            });
+        };
+    }, []);
+
+    const initializeTimer = (eventDate, contestId) => {
         const updateTimer = () => {
-            const now = new Date().getTime();
-            const distance = eventDate - now;
+            const now = new Date();
+            const distance = eventDate.getTime() - now.getTime();
 
             if (distance < 0) {
-                setTimeLeft({ hours: "00", minutes: "00", seconds: "00" });
-                return;
+                setContestTimers(prev => ({
+                    ...prev,
+                    [contestId]: {
+                        ...prev[contestId],
+                        timeLeft: { hours: "00", minutes: "00", seconds: "00" },
+                        status: "This event has already passed"
+                    }
+                }));
+                return false;
             }
 
-            const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, "0");
+            const hours = String(Math.floor(distance / (1000 * 60 * 60))).padStart(2, "0");
             const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, "0");
             const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, "0");
 
-            setTimeLeft({ hours, minutes, seconds });
+            setContestTimers(prev => ({
+                ...prev,
+                [contestId]: {
+                    ...prev[contestId],
+                    timeLeft: { hours, minutes, seconds },
+                    status: null
+                }
+            }));
+            return true;
         };
 
-        const interval = setInterval(updateTimer, 1000);
-        updateTimer();
+        if (updateTimer()) {
+            const interval = setInterval(() => {
+                if (!updateTimer()) {
+                    clearInterval(interval);
+                }
+            }, 1000);
 
-        return () => clearInterval(interval);
+            setContestTimers(prev => ({
+                ...prev,
+                [contestId]: {
+                    ...prev[contestId],
+                    interval: interval
+                }
+            }));
+        }
     };
 
-    if (loading) return <p>Loading contest details...</p>;
-    if (error) return <p className="error">{error}</p>;
+    if (loading) return (
+        <div className="contest-container">
+            <div className="contest-card">
+                <div className="loading">Loading contest details...</div>
+            </div>
+        </div>
+    );
+
+    if (error) return (
+        <div className="contest-container">
+            <div className="contest-card">
+                <div className="error-message">{error}</div>
+            </div>
+        </div>
+    );
+
+    if (contests.length === 0) return (
+        <div className="contest-container">
+            <div className="contest-card">
+                <div className="no-contest">No contests available</div>
+            </div>
+        </div>
+    );
 
     return (
-        <>
-            <div className="contest-container">
-                <div className="contest-card">
-                    <div className="contest-header">
-                        <h1 className="contest-title">{contest.heading}</h1>
-                        <p className="contest-description">{contest.description}</p>
-                    </div>
+        <div className="contests-list">
+            {contests.map(contest => (
+                <div key={contest.id} className="contest-container">
+                    <div className="contest-card">
+                        <div className="contest-header">
+                            <h1 className="contest-title">{contest.heading || 'Contest Title'}</h1>
+                            <p className="contest-description">{contest.description || 'No description available'}</p>
+                        </div>
 
-                    <div className="contest-timer">
-                        <div className="timer-box">
-                            <div className="timer-value">{timeLeft.hours}</div>
-                            <div className="timer-label">HOURS</div>
-                        </div>
-                        <div className="timer-box">
-                            <div className="timer-value">{timeLeft.minutes}</div>
-                            <div className="timer-label">MINUTES</div>
-                        </div>
-                        <div className="timer-box">
-                            <div className="timer-value">{timeLeft.seconds}</div>
-                            <div className="timer-label">SECONDS</div>
-                        </div>
-                    </div>
+                        {!contest.date || !contest.time ? (
+                            <div className="timer-error">Date or time not available for this contest</div>
+                        ) : contestTimers[contest.id]?.status ? (
+                            <div className="event-status">{contestTimers[contest.id].status}</div>
+                        ) : (
+                            <div className="contest-timer">
+                                <div className="timer-box">
+                                    <div className="timer-value">{contestTimers[contest.id]?.timeLeft.hours || "00"}</div>
+                                    <div className="timer-label">HOURS</div>
+                                </div>
+                                <div className="timer-box">
+                                    <div className="timer-value">{contestTimers[contest.id]?.timeLeft.minutes || "00"}</div>
+                                    <div className="timer-label">MINUTES</div>
+                                </div>
+                                <div className="timer-box">
+                                    <div className="timer-value">{contestTimers[contest.id]?.timeLeft.seconds || "00"}</div>
+                                    <div className="timer-label">SECONDS</div>
+                                </div>
+                            </div>
+                        )}
 
-                    <p className="contest-info">
-                        {contest.description}
-                    </p>
+                        <button className="register-button">
+                            Register Now <FaArrowRight className="register-icon" />
+                        </button>
 
-                    <button className="register-button">
-                        Register Now <FaArrowRight className="register-icon" />
-                    </button>
-
-                    <div className="contest-details">
-                        <div className="detail-box">
-                            <FaCalendar className="detail-icon" />
-                            <h3 className="detail-title">Date & Time</h3>
-                            <p className="detail-text">{contest.date} <br /> {contest.time} IST</p>
-                        </div>
-                        <div className="detail-box">
-                            <FaClock className="detail-icon" />
-                            <h3 className="detail-title">Duration</h3>
-                            <p className="detail-text">{contest.duration} Minutes</p>
-                        </div>
-                        <div className="detail-box">
-                            <FaSignal className="detail-icon" />
-                            <h3 className="detail-title">Difficulty</h3>
-                            <p className="detail-text">{contest.difficultyLevel}</p>
-                        </div>
-                        <div className="detail-box">
-                            <FaTrophy className="detail-icon" />
-                            <h3 className="detail-title">Prizes</h3>
-                            <p className="detail-text">{contest.prizes}</p>
+                        <div className="contest-details">
+                            <div className="detail-box">
+                                <FaCalendar className="detail-icon" />
+                                <h3 className="detail-title">Date & Time</h3>
+                                <p className="detail-text">{contest.date || 'Not specified'} <br /> {contest.time || 'Not specified'} IST</p>
+                            </div>
+                            <div className="detail-box">
+                                <FaClock className="detail-icon" />
+                                <h3 className="detail-title">Duration</h3>
+                                <p className="detail-text">{contest.duration || 'Not specified'} Minutes</p>
+                            </div>
+                            <div className="detail-box">
+                                <FaSignal className="detail-icon" />
+                                <h3 className="detail-title">Difficulty</h3>
+                                <p className="detail-text">{contest.difficultyLevel || 'Not specified'}</p>
+                            </div>
+                            <div className="detail-box">
+                                <FaTrophy className="detail-icon" />
+                                <h3 className="detail-title">Prizes</h3>
+                                <p className="detail-text">{contest.prizes || 'Not specified'}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </>
+            ))}
+        </div>
     );
 }
 

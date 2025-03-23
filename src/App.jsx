@@ -11,6 +11,7 @@ import Mainpage from './component/Mainpage/Mainpage';
 import UserProfile from './component/UserProfile/UserProfile';
 import JobForm from './component/JobProfile/JobForm';
 import JobBoard from './component/JobProfile/JobBoard';
+import MCQform from './component/MCQ/MCQform';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -28,6 +29,7 @@ function App() {
           <Route path='/' element={<Mainpage />} />
           <Route path='/profile' element={<UserProfile/>} />
           <Route path='/jobform' element={<JobForm/>} />
+          <Route path='/MCQForm' element={<MCQform/>} />
           <Route path='/jobboard' element={<JobBoard/>} />
         </Routes>
       </BrowserRouter>

@@ -217,14 +217,25 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    margin-top: 30px;
 }
-
+.contests-list{
+    display: grid
+    ;
+        grid-template-columns: repeat(2, 1fr);
+        /* gap: 10px 89px; */
+        /* margin-top: 30px; */
+        justify-content: space-between;
+}
 .detail-box {
     background-color: #f3f4f6;
     padding: 15px;
     border-radius: 8px;
     text-align: center;
+    align-items: center;
+    display: flex
+;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .detail-icon {
@@ -382,6 +393,25 @@
     .tech-communities-grid {
         grid-template-columns: 1fr;
     }
+    .contest-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .contests-list{
+        display: grid
+        ;
+            grid-template-columns: repeat(1, 1fr);
+            /* gap: 10px 89px; */
+            /* margin-top: 30px; */
+            justify-content: space-between;
+    }
+    .contest-container {
+     
+        min-height: 72vh;
+       
+    }
+
 }
 
 /* Faq section */

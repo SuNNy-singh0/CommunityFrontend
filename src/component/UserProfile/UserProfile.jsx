@@ -229,33 +229,16 @@ const UserProfile = () => {
   };
 
   const performanceData = [
-    { day: "1", score: 820 },
+    { day: "1", score: 1000 },
     { day: "5", score: 932 },
-    { day: "10", score: 901 },
+    { day: "10", score: 800 },
     { day: "15", score: 934 },
     { day: "20", score: 1290 },
     { day: "25", score: 1330 },
     { day: "30", score: 1320 },
   ];
   const recentActivities = [
-    {
-      icon: <FaCodeBranch className="activity-icon branch-icon" />,
-      title: "Merged Pull Request",
-      description: "Feature: Add new authentication system",
-      time: "2 hours ago",
-    },
-    {
-      icon: <FaCheck className="activity-icon check-icon" />,
-      title: "Completed Challenge",
-      description: "Advanced Algorithm: Dynamic Programming",
-      time: "5 hours ago",
-    },
-    {
-      icon: <FaTrophy className="activity-icon trophy-icon" />,
-      title: "Achievement Unlocked",
-      description: "100 Days Coding Streak",
-      time: "1 day ago",
-    },
+ 
   ];
 
   if (loading) {
@@ -274,24 +257,24 @@ const UserProfile = () => {
       <div className="mainContent">
         {/* Header */}
         <header className="header">
-          <h2 className="headerTitle">Developer Dashboard</h2>
-          <div className="headerIcons">
-            <FaBell className="icon" />
-            <FaMoon className="icon" />
-            <div className="profileInfo">
-              <img 
-                src={userDetails.profilePicUrl || "/community.jpg"} 
-                alt="Profile" 
-                style={{
-                  margin: '0px 10px',
-                  width: '20%',
-                  borderRadius: '50px'
-                }}
-                className="profileImage" 
-              />
-              <span className="profileName">{userDetails.name}</span>
-            </div>
-          </div>
+          <img src="/logo.png" style={{
+            width:'120px',
+            height:'90px'
+          }}></img>
+          <h2 className="headerTitle">User Dashboard</h2>
+          <img src={userDetails.profilePicUrl || "/Usericon.png"}  style={{
+            width:'60px',
+            height:'60px',
+            border:'1px solid green',
+            padding:'8px',
+            borderRadius:'35px'
+          }}></img>
+          <h5>{userDetails.name || username} <br></br>
+          <span style={{
+            color:'green',
+            fontWeight:'500'
+          }}>Rating:{userDetails.coins}</span> 
+          </h5>
         </header>
 
         {/* Content Grid */}
@@ -300,29 +283,33 @@ const UserProfile = () => {
           <div className="chartContainer">
             <h3 className="sectionTitle">Monthly Performance</h3>
             <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={[{ day: "Current", score: userDetails.monthlyPerformance }]}>
+              <LineChart data={performanceData}>
                 <XAxis dataKey="day" />
                 <YAxis />
                 <Tooltip />
                 <CartesianGrid strokeDasharray="3 3" />
-                <Line type="monotone" dataKey="score" stroke="#6366F1" strokeWidth={2} />
+                <Line type="monotone" dataKey="score" stroke="green" strokeWidth={2} />
               </LineChart>
             </ResponsiveContainer>
               {/* Recent Activity */}
            <div className="activity-container">
             <h3 className="section-title">Recent Activity</h3>
-            <div className="activity-list">
-              {recentActivities.map((activity, index) => (
-                <div className="activity-item" key={index}>
-                  <div className="activity-icon-wrapper">{activity.icon}</div>
-                  <div className="activity-details">
-                    <h4 className="activity-title">{activity.title}</h4>
-                    <p className="activity-description">{activity.description}</p>
-                    <p className="activity-time">{activity.time}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {recentActivities && recentActivities.length > 0 ? (
+    <div className="activity-list">
+      {recentActivities.map((activity, index) => (
+        <div className="activity-item" key={index}>
+          <div className="activity-icon-wrapper">{activity.icon}</div>
+          <div className="activity-details">
+            <h4 className="activity-title">{activity.title}</h4>
+            <p className="activity-description">{activity.description}</p>
+            <p className="activity-time">{activity.time}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  ) : (
+    <p className="activity-no-data">No recent activity</p>
+  )}
           </div>
           
           </div>
@@ -338,7 +325,7 @@ const UserProfile = () => {
 
             <div className="profilePicSection">
               <img 
-                src={userDetails.profilePicUrl || "/community.jpg"} 
+                src={userDetails.profilePicUrl || "/Usericon.png"} 
                 alt="Profile" 
                 className="profilePic" 
               />
@@ -360,9 +347,16 @@ const UserProfile = () => {
                 className="editInput"
               />
             ) : (
+              <>
               <h4 className="profileName">{userDetails.name}</h4>
+              <span style={{
+            color:'green',
+            fontWeight:'600',
+            fontSize:'18px'
+          }}>Rating:{userDetails.coins}</span> 
+              </>
             )}
-
+            
             {isEditing ? (
               <textarea
                 value={userDetails.description}
