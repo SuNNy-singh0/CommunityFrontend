@@ -5,15 +5,18 @@ import Stay from './Stay'
 import Community from './Community'
 import FAQ from './FAQ'
 import Footer from './Footer'
+import JobBanner from '../JobProfile/JobBanner'
 
 function Mainpage() {
   return (
     <>
      <Upperbanner/>
      <Stay/>
+     <Community/>
+     <JobBanner/>
      <Feature/>
      
-     <Community/>
+    
      <FAQ/>
      <Footer/>
     </>

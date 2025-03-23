@@ -1,0 +1,108 @@
+.jobform-container {
+    max-width: 40rem;
+    margin: auto;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .jobform-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .jobform-alert {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+  }
+  
+  .jobform-alert-error {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  .jobform-alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .jobform-field {
+    margin-bottom: 1rem;
+  }
+  
+  .jobform-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+  
+  .jobform-input,
+  .jobform-textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+  }
+  
+  .jobform-textarea {
+    resize: vertical;
+    min-height: 5rem;
+  }
+  
+  .jobform-file-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+  }
+  
+  .jobform-preview {
+    margin-top: 0.5rem;
+  }
+  
+  .jobform-preview img {
+    max-width: 10rem;
+    border-radius: 0.375rem;
+  }
+  
+  .jobform-button {
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .jobform-button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .jobform-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .jobform-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    background-color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .jobform-select:focus {
+    outline: none;
+    border-color: #6366F1;
+    box-shadow: 0 0 4px rgba(99, 102, 241, 0.5);
+  }
+  

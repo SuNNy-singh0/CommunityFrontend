@@ -1,0 +1,141 @@
+/* Container */
+.jobbanner-container {
+    /* background: linear-gradient(135deg, #4f46e5, #6366f1); */
+    color: white;
+    padding: 1.5rem;
+  }
+  
+  /* Navbar */
+ 
+  
+  .jobbanner-postjob {
+    display: flex;
+    align-items: center;
+  }
+  
+  .jobbanner-button {
+    background-color: #4f46e5;
+    color: black;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .jobbanner-button:hover {
+    background-color: #4338ca;
+  }
+  
+  /* Hero Section */
+  .jobbanner-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+  }
+  
+  .jobbanner-content {
+    max-width: 50%;
+  }
+  
+  .jobbanner-title {
+    letter-spacing: 1px;
+    font-size: 25px;
+    font-weight: 500;
+  }
+  .jobbanner-title span{
+    color: black;
+  }
+  .jobbanner-highlight {
+    display: block;
+    color: black;
+  }
+  
+  .jobbanner-description {
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: black;
+  }
+  
+  /* Stats */
+  .jobbanner-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .jobbanner-statbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    backdrop-filter: blur(8px);
+    color: black;
+  }
+  
+  .jobbanner-staticon {
+    font-size: 1.25rem;
+    color: black;
+  }
+  
+  .jobbanner-stattext {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  /* Buttons */
+  .jobbanner-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .jobbanner-primary-btn {
+    background: white;
+    color: black;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: none;
+    box-shadow: 1px 1px 4px 1px #c8bfbf;
+  }
+  
+  .jobbanner-primary-btn:hover {
+    background: #e0e7ff;
+  }
+  
+  .jobbanner-secondary-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: green;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+        border: none;
+    box-shadow: 1px 1px 4px 1px #c8bfbf;
+    
+  }
+  
+  .jobbanner-secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Right Image */
+  .jobbanner-image {
+    max-width: 45%;
+  }
+  
+  .jobbanner-image-img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  

@@ -8,7 +8,6 @@ import { isAuthenticated, getUser, logout } from '../../utils/auth';
 function Upperbanner() {
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
-
   useEffect(() => {
     const user = getUser();
     if (user && user.username) {
@@ -31,7 +30,9 @@ function Upperbanner() {
         <div className='btncontainer'>
           {isAuthenticated() ? (
             <div className="user-section" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{ color: 'black', fontWeight: 'bold' }}>
+              <span style={{ color: 'black', fontWeight: 'bold' ,cursor:'pointer'}} onClick={()=>{
+                navigate('/profile');
+              }}>
                 {username || 'User'}
               </span>
               <a href="#" onClick={handleLogout} id="button">
