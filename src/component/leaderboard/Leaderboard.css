@@ -1,0 +1,300 @@
+/* Container */
+.communitychat-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* Header */
+  .communitychat-header {
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .communitychat-header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .communitychat-logo img {
+    height: 40px;
+  }
+  
+  .communitychat-job-button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .communitychat-job-dropdown {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    z-index: 10;
+  }
+  
+  .communitychat-job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .communitychat-job-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .communitychat-job-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .communitychat-job-info {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .communitychat-apply-button {
+    background-color: #007bff;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Notification & Profile */
+  .communitychat-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .communitychat-notification-button {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: gray;
+    cursor: pointer;
+  }
+  
+  .communitychat-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  /* Contest Section */
+  .communitychat-contest {
+    background-color: #f1f3f5;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .communitychat-contest-content {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .communitychat-contest-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .communitychat-contest-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 8px;
+  }
+  
+  .communitychat-contest-description {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .communitychat-contest-details {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: gray;
+    margin-top: 8px;
+  }
+  
+  .communitychat-contest-level {
+    background: yellow;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: black;
+  }
+  
+  /* Chat Section */
+  .communitychat-main {
+    display: flex;
+    flex: 1;
+  }
+  
+  .communitychat-chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  /* Messages */
+  .communitychat-messages {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  
+  .communitychat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .communitychat-message img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .communitychat-left {
+    justify-content: flex-start;
+  }
+  
+  .communitychat-right {
+    justify-content: flex-end;
+  }
+  
+  .communitychat-message-content {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 60%;
+  }
+  
+  .communitychat-right .communitychat-message-content {
+    background: #007bff;
+    color: white;
+  }
+  
+  .communitychat-username {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .communitychat-time {
+    font-size: 12px;
+    color: gray;
+  }
+  
+  .communitychat-file {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #f1f3f5;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Chat Input */
+  .communitychat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: white;
+    align-items: center;
+  }
+  
+  .communitychat-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .communitychat-attach,
+  .communitychat-send {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .communitychat-send {
+    color: #007bff;
+  }
+  
+  /* Sidebar */
+  .communitychat-sidebar {
+    width: 250px;
+    background: white;
+    padding: 15px;
+    border-left: 1px solid #ddd;
+  }
+  
+  .communitychat-sidebar-search {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #f1f3f5;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  .communitychat-sidebar-search input {
+    border: none;
+    background: transparent;
+    flex: 1;
+  }
+  
+  .communitychat-members {
+    margin-top: 15px;
+  }
+  
+  .communitychat-member {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+  }
+  
+  .communitychat-member-name {
+    font-weight: 600;
+  }
+  
+  .communitychat-member-status {
+    font-size: 12px;
+    color: gray;
+  }
+  

@@ -8,6 +8,7 @@ import Footer from './Footer'
 import JobBanner from '../JobProfile/JobBanner'
 
 import MCQPage from '../MCQ/MCQpage'
+import Leaderboard from '../leaderboard/Leaderboard'
 
 function Mainpage() {
   return (
@@ -16,7 +17,9 @@ function Mainpage() {
      <MCQPage/>
      <Stay/>
      <Community/>
+     <Leaderboard/>
      <JobBanner/>
+     
      <Feature/>
      
     
