@@ -228,15 +228,13 @@ const UserProfile = () => {
     return name.slice(0, 15) + '...' + extension;
   };
 
-  const performanceData = [
-    { day: "1", score: 1000 },
-    { day: "5", score: 932 },
-    { day: "10", score: 800 },
-    { day: "15", score: 934 },
-    { day: "20", score: 1290 },
-    { day: "25", score: 1330 },
-    { day: "30", score: 1320 },
-  ];
+  // Transform monthly performance data for the chart
+  const performanceData = userDetails.monthlyPerformance ? 
+    userDetails.monthlyPerformance.map((score, index) => ({
+      day: (index + 1).toString(),
+      score: score
+    })) : [];
+
   const recentActivities = [
  
   ];
