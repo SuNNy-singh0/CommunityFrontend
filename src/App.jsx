@@ -32,7 +32,7 @@ function App() {
           <Route path='/jobform' element={<JobForm/>} />
           <Route path='/MCQForm' element={<MCQform/>} />
           <Route path='/jobboard' element={<JobBoard/>} />
-          <Route path='/Community' element={<CommunityChat/>} />
+          <Route path='/Community/:username/:userid' element={<CommunityChat/>} />
         </Routes>
       </BrowserRouter>
     </>

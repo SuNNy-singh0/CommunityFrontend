@@ -8,7 +8,7 @@ import {
   FaArrowDown,
   FaMinus,
 } from "react-icons/fa";
-import "./Leaderboard.css"; // Import CSS file
+import "./Leaderboard.css"; // Comment out to disable CSS
 
 const Leaderboard = () => {
   const [topPerformers, setTopPerformers] = useState([]);

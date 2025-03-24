@@ -182,9 +182,7 @@
   }
   
   .communitychat-message img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 100%;
   }
   
   .communitychat-left {
@@ -203,8 +201,8 @@
   }
   
   .communitychat-right .communitychat-message-content {
-    background: #007bff;
-    color: white;
+    /* background: #007bff; */
+    color: black;
   }
   
   .communitychat-username {
@@ -297,4 +295,130 @@
     font-size: 12px;
     color: gray;
   }
+  
+.leaderboard-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  font-family: "Inter", sans-serif;
+}
+
+.leaderboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.leaderboard-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leaderboard-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.leaderboard-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.leaderboard-top5 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.leaderboard-card {
+  position: relative;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.leaderboard-card:hover {
+  transform: translateY(-5px);
+}
+
+
+
+.leaderboard-crown {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffd700;
+  font-size: 2rem;
+}
+
+.leaderboard-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.leaderboard-username {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.leaderboard-rank {
+  display: block;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.leaderboard-coins {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: green;
+  font-weight: bold;
+}
+
+.leaderboard-coin-icon {
+  color: #f4b41a;
+}
+
+.leaderboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.leaderboard-stat-box {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-stat-label {
+  display: block;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.leaderboard-stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
   

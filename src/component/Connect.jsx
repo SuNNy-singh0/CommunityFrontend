@@ -3,18 +3,23 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Client, Stomp } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 import "./Connect.css";
-import { FaJava } from "react-icons/fa6";
-import { MdOutlineAttachment, MdUpdate } from "react-icons/md";
-import { FiSend } from "react-icons/fi";
+import {
+  FaBriefcase,
+  FaBell,
+  FaCalendar,
+  FaClock,
+  FaPaperclip,
+  FaPaperPlane,
+  FaSearch,
+  FaFileAlt,
+  FaTimes,
+  FaExternalLinkAlt,
+} from "react-icons/fa";
+import { MdOutlineAttachment } from "react-icons/md";
 import { IoMdExit } from "react-icons/io";
 import { getmessages } from "../service/Service";
-import { FaUserCircle } from "react-icons/fa";
 
 const baseurl = "http://localhost:8080";
-
-// Avatar configuration
-const AVATAR_COUNT = 12; // Number of available avatars
-const AVATAR_BASE_PATH = '/avatars/'; // Path to avatar images in public folder
 
 const Connect = () => {
   const naviagate = useNavigate();
@@ -22,7 +27,6 @@ const Connect = () => {
   const [message, setMessage] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileName, setFileName] = useState("");
-  const [userAvatar, setUserAvatar] = useState(null);
   const [communityMembers, setCommunityMembers] = useState([]);
   const fileInputRef = useRef(null);
   const { username, userid } = useParams();
@@ -30,6 +34,10 @@ const Connect = () => {
   const inputRef = useRef(null);
   const [isConnected, setIsConnected] = useState(false);
   const reconnectTimeoutRef = useRef(null);
+  const [contests, setContests] = useState([]);
+  const [showJobsPopup, setShowJobsPopup] = useState(false);
+  const [jobs, setJobs] = useState([]);
+  const [userProfiles, setUserProfiles] = useState({});
 
   // Fetch community members
   useEffect(() => {
@@ -79,27 +87,75 @@ const Connect = () => {
     fetchCommunityMembers();
   }, [username]);
 
-  // Function to get or assign user avatar
-  const getUserAvatar = () => {
-    const storedAvatar = localStorage.getItem(`userAvatar_${userid}`);
-    if (storedAvatar) {
-      return storedAvatar;
+  // Add contest fetching effect
+  useEffect(() => {
+    const fetchContests = async () => {
+      try {
+        const response = await fetch(`${baseurl}/contests/all`);
+        if (response.ok) {
+          const allContests = await response.json();
+          // Filter contests for current community only (not including null/global contests)
+          const communityContests = allContests.filter(contest => 
+            contest.communitytype === username
+          );
+          setContests(communityContests);
+        } else {
+          console.error("Failed to fetch contests");
+        }
+      } catch (error) {
+        console.error("Error fetching contests:", error);
+      }
+    };
+
+    fetchContests();
+  }, [username]);
+
+  // Add jobs fetching function
+  const fetchJobs = async () => {
+    try {
+      const response = await fetch(`${baseurl}/jobs/all`);
+      if (response.ok) {
+        const allJobs = await response.json();
+        // Filter jobs for current community
+        const communityJobs = allJobs.filter(job => job.communitytype === username);
+        setJobs(communityJobs);
+      } else {
+        console.error("Failed to fetch jobs");
+      }
+    } catch (error) {
+      console.error("Error fetching jobs:", error);
     }
-    
-    // Generate random avatar number between 1 and AVATAR_COUNT
-    const randomAvatar = Math.floor(Math.random() * AVATAR_COUNT) + 1;
-    const avatarPath = `${AVATAR_BASE_PATH}avatar${randomAvatar}.png`;
-    
-    // Store the avatar in localStorage
-    localStorage.setItem(`userAvatar_${userid}`, avatarPath);
-    return avatarPath;
   };
 
-  // Initialize user avatar on component mount
+  // Update profile pictures fetching effect
   useEffect(() => {
-    const avatar = getUserAvatar();
-    setUserAvatar(avatar);
-  }, [userid]);
+    const fetchUserProfiles = async () => {
+      try {
+        const response = await fetch(`${baseurl}/usercontrol/user-pics`);
+        if (response.ok) {
+          const profiles = await response.json();
+          // Convert array to object for easier lookup
+          const profileMap = {};
+          profiles.forEach(profile => {
+            // Only add to map if profilePicUrl is not empty
+            profileMap[profile.name] = profile.profilePicUrl || "/profile.png";
+          });
+          setUserProfiles(profileMap);
+        } else {
+          console.error("Failed to fetch user profiles");
+        }
+      } catch (error) {
+        console.error("Error fetching user profiles:", error);
+      }
+    };
+
+    fetchUserProfiles();
+  }, []);
+
+  // Helper function to get user profile picture
+  const getUserProfilePic = (username) => {
+    return userProfiles[username] || "/profile.png";
+  };
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
@@ -297,127 +353,287 @@ const Connect = () => {
   const renderMessage = (msg) => {
     if (msg.messageType === 'image') {
       return (
-        <div className="imageMessage">
+        <div className="message-image">
           <img 
             src={msg.fileUrl} 
             alt={msg.content} 
-            style={{ maxWidth: '300px', maxHeight: '300px', borderRadius: '8px' }}
+            style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: '8px' }}
           />
         </div>
       );
     } else if (msg.messageType === 'file') {
       return (
-        <div className="fileMessage">
-          <span className="fileIcon">📎</span>
+        <div className="message-file">
+          <FaFileAlt className="file-icon" />
           <a 
             href={msg.fileUrl} 
             target="_blank"
             rel="noopener noreferrer"
-            className="fileLink"
+            className="file-link"
           >
-            {msg.content} ({msg.fileSize})
+            {msg.content}
           </a>
         </div>
       );
     }
-    return <p className="messageText">{msg.content}</p>;
+    return <p className="message-text">{msg.content}</p>;
+  };
+
+  const formatDate = (dateStr) => {
+    return new Date(dateStr).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const formatTime = (timeStr) => {
+    const [hours, minutes] = timeStr.split(':');
+    return new Date(0, 0, 0, hours, minutes).toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
+
+  // Format date helper function
+  const formatJobDate = (dateStr) => {
+    return new Date(dateStr).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  // Jobs popup component
+  const JobsPopup = () => {
+    if (!showJobsPopup) return null;
+
+    return (
+      <div className="jobs-popup-overlay">
+        <div className="jobs-popup">
+          <div className="jobs-popup-header">
+            <h2>Job Opportunities - {username} Community</h2>
+            <button className="btn btn-dark" onClick={()=>{
+              naviagate('/jobboard')
+            }}>See all jobs</button>
+            <button className="close-button" onClick={() => setShowJobsPopup(false)}>
+              <FaTimes />
+            </button>
+            
+          </div>
+          <div className="jobs-popup-content">
+            {jobs.length > 0 ? (
+              jobs.map((job) => (
+                <div key={job.id} className="job-card">
+                  {job.postimagelink && (
+                    <div className="job-image">
+                      {/* <img src={job.postimagelink} alt="Job post" /> */}
+                    </div>
+                  )}
+                  <div className="job-details">
+                    <div className="job-header">
+                      <div className="job-tags">
+                        {job.tag.filter(tag => tag).map((tag, index) => (
+                          <span key={index} className="job-tag">#{tag}</span>
+                        ))}
+                      </div>
+                      <span className="job-date">{formatJobDate(job.date)}</span>
+                    </div>
+                    <p className="job-description">{job.description}</p>
+                    {job.sourcelink && (
+                      <a 
+                        href={job.sourcelink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="source-link"
+                      >
+                        View Source <FaExternalLinkAlt size={12} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="no-jobs">
+                <p>No job opportunities available for {username} community at the moment.</p>
+                <p>Please check back later!</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
-    <div className="connectContainer">
-      <header className="connectHeader">
-        <div className="connectLogo" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "center" }}>
-          <img className="community-logo" src="/logo.png" alt="Logo" />
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            {/* <FaJava size={24} color="#E76F00" /> */}
-            <h2 style={{ margin: 0 }}>Welcome to Java Community</h2>
-          </div>
+    <div className="communitychat-container">
+      <header className="communitychat-header">
+        <div className="header-left">
+          <img src="/logo.png" alt="Logo" className="logo" />
+          <h2>{username} Community</h2>
         </div>
-        <div className="connectButtons">
-          {/* <button className="latestButton"><MdUpdate size={20}/>Latest Update</button> */}
-          <FaUserCircle color='green' size={30}/><span style={{
-            margin:'0px 5px',
-            fontSize:'18px',
-            fontWeight:'500'
-          }}>{userid}</span>
-          <button className="exitButton" onClick={()=>{
-            naviagate('/');
-          }}><IoMdExit size={20}/>Exit</button>
+        <div className="header-right">
+          <button 
+            className="job-button" 
+            onClick={() => {
+              fetchJobs();
+              setShowJobsPopup(true);
+            }}
+          >
+            <FaBriefcase size={16} />
+            Job Opportunities
+          </button>
+          <div className="user-info">
+            <img 
+              src={getUserProfilePic(userid)}
+              alt={userid} 
+              style={{
+                width:'40px',
+                height:'40px'
+              }}
+            />
+            <span>{userid}</span>
+          </div>
+          <button className="exit-button" onClick={() => naviagate('/')}>
+            <IoMdExit size={20} />
+            Exit
+          </button>
         </div>
       </header>
-      <div className="connectMain">
-        <div className="chatWindow">
-          <div className="chatHeader" style={{
-            color:'darkgreen',
-            fontSize:'20px',
-            fontWeight:'500'
-          }}>
-            <p>Java Contest is at 29 March , 2024 2:00pm </p>
+
+      {/* Add JobsPopup component */}
+      <JobsPopup />
+
+      <div className="communitychat-contests">
+        {contests.length > 0 ? (
+          contests.map((contest) => (
+            <div key={contest.id} className="communitychat-contest">
+              <div className="communitychat-contest-content">
+                <div className="communitychat-contest-header">
+                  <span>Upcoming Contest</span>
+                  <span className="contest-type">
+                    {contest.communitytype} Community
+                  </span>
+                </div>
+                <p className="communitychat-contest-title">{contest.heading}</p>
+                <p className="communitychat-contest-description">
+                  {contest.description}
+                </p>
+                <div className="communitychat-contest-details">
+                  <span>
+                    <FaCalendar /> {formatDate(contest.date)}
+                  </span>
+                  <span>
+                    <FaClock /> {formatTime(contest.time)}
+                  </span>
+                  <span>
+                    <FaClock /> Duration: {contest.duration} minutes
+                  </span>
+                  <span className={`communitychat-contest-level ${contest.difficultyLevel.toLowerCase()}`}>
+                    {contest.difficultyLevel}
+                  </span>
+                </div>
+                <div className="communitychat-contest-prizes">
+                  <p>Prizes:</p>
+                  <p>{contest.prizes}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="communitychat-no-contests">
+            <div className="no-contests-content">
+              <FaCalendar size={40} />
+              <h3>No Contests Available</h3>
+              <p>There are currently no contests scheduled for the {username} community.</p>
+              <p>Please stay tuned for upcoming contests!</p>
+            </div>
           </div>
-          <div className="chatMessages">
+        )}
+      </div>
+
+      <div className="communitychat-main">
+        
+        <div className="communitychat-chat">
+          {/* <div className="chat-header">
+            <div className="announcement">
+              <FaCalendar size={20} />
+              <p>Java Contest is at 29 March, 2024 2:00pm</p>
+            </div>
+          </div> */}
+
+          <div className="chat-messages">
             {messages.map((msg, index) => (
-              <div key={index} className={`chatMessage ${msg.sender === userid ? 'currentUser' : ''}`}>
-                <div className="avatar">
+              <div 
+                key={index} 
+                className={`communitychat-message ${msg.sender === userid ? 'communitychat-right' : ''}`}
+              >
+                <div className="message-avatar">
                   <img 
-                    src={localStorage.getItem(`userAvatar_${msg.sender}`) || `${AVATAR_BASE_PATH}avatar1.png`} 
+                    src={getUserProfilePic(msg.sender)}
                     alt={`${msg.sender}'s avatar`}
                   />
                 </div>
-                <div className="messageContent">
-                  <span className="username">{msg.sender}</span>
+                <div className="communitychat-message-content">
+                  <div className="message-header">
+                    <span className="sender-name">{msg.sender}</span>
+                    <span className="message-time">
+                      {new Date(msg.timestamp).toLocaleTimeString()}
+                    </span>
+                  </div>
                   {renderMessage(msg)}
                 </div>
               </div>
             ))}
           </div>
-          <div className="chatInputArea">
+
+          <div className="communitychat-input">
             <input
               type="file"
               ref={fileInputRef}
               onChange={handleFileSelect}
               style={{ display: 'none' }}
             />
-            <span className="attach" onClick={() => fileInputRef.current?.click()}>
-              <MdOutlineAttachment size={25}/>
-            </span>
+            <button className="attach-button" onClick={() => fileInputRef.current?.click()}>
+              <FaPaperclip size={20} />
+            </button>
             {fileName && (
-              <span className="fileName" style={{ margin: '0 10px', fontSize: '14px', color: '#666' }}>
-                {fileName}
-              </span>
+              <span className="file-name">{fileName}</span>
             )}
             <input
               type="text"
-              className="messageInput"
+              className="message-input"
               placeholder="Type your message..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               ref={inputRef}
             />
             <button 
-              className="sendButton" 
+              className="communitychat-send"
               onClick={selectedFile ? handleFileUpload : handleSendMessage}
             >
-              <FiSend size={20}/>Send
+              <FaPaperPlane size={16} />
+              Send
             </button>
           </div>
         </div>
-        <aside className="onlineUsers">
+
+        <aside className="communitychat-sidebar">
           <h3>Community Members</h3>
-          <div className="userList">
+          <div className="member-list">
             {communityMembers.length === 0 ? (
-              <p style={{ color: '#666', textAlign: 'center' }}>No members found</p>
+              <p className="no-members">No members found</p>
             ) : (
               communityMembers.map((member) => (
-                <div key={member.id} className="userItem">
-                  <div className="userAvatar">
+                <div key={member.id} className="communitychat-member">
+                  <div className="member-avatar">
                     <img 
-                      src={localStorage.getItem(`userAvatar_${member.username}`) || `${AVATAR_BASE_PATH}avatar1.png`}
+                      src={getUserProfilePic(member.username)}
                       alt={`${member.username}'s avatar`}
                     />
                   </div>
-                  <div className="userInfo">
-                    <span className="userName">{member.username}</span>
-                   
+                  <div className="member-info">
+                    <span className="member-name">{member.username}</span>
                   </div>
                 </div>
               ))

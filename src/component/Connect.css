@@ -1,226 +1,606 @@
-.connectContainer {
+.communitychat-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    background-color: #f9f9f9;
+    min-height: 100vh;
+    background-color: #f5f7fb;
 }
 
-.connectHeader {
+.communitychat-header {
+    background-color: white;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.connectLogo {
-    font-size: 20px;
-    font-weight: bold;
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.connectButtons button {
-    margin-left: 10px;
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
+.logo {
+    height: 40px;
+    width: auto;
 }
 
-.latestButton {
-    background-color: #007bff;
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+}
+
+.exit-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #dc3545;
     color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-.exitButton {
-    background-color: #ffffff;
-    color: #ff0000;
-    font-weight: 600;
-    border: 1px solid red !important;
-    border-radius: 10px;
+.exit-button:hover {
+    background-color: #c82333;
 }
 
-.connectMain {
+.communitychat-main {
     display: flex;
     flex: 1;
+    padding: 20px;
+    gap: 20px;
 }
 
-.chatWindow {
+.communitychat-chat {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.chatHeader {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+.chat-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
 }
 
-.chatMessages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px 0;
-}
-
-.chatMessage {
+.announcement {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px;
+    align-items: center;
+    gap: 10px;
+    color: #28a745;
 }
 
-.chatMessage.currentUser {
-    justify-content: flex-end;
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.messageContent {
-    margin-left: 10px;
+.communitychat-message {
+    display: flex;
+    gap: 12px;
+    max-width: 70%;
 }
 
-.chatMessage.currentUser .messageContent {
-    margin-left: 0;
-    margin-right: 10px;
+.communitychat-right {
+    margin-left: auto;
+    flex-direction: row-reverse;
 }
 
-.username {
-    font-weight: bold;
-}
-
-.timeStamp {
-    font-size: 12px;
-    color: gray;
-    margin-left: 5px;
-}
-
-.messageText {
-    margin-top: 5px;
-}
-
-.avatar {
-    width: 40px;
+.message-avatar img {
+    width: 100%;
     height: 40px;
     border-radius: 50%;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.avatar img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
 }
 
-.imageMessage img {
-    max-width: 100%;
-    border-radius: 0.5rem;
+.communitychat-message-content {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 12px;
+    position: relative;
 }
 
-.fileMessage {
+.communitychat-right .communitychat-message-content {
+    /* background: #007bff; */
+    color: black;
+}
+
+.message-header {
+    margin-bottom: 5px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.sender-name {
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.message-time {
+    font-size: 0.8em;
+    color: #666;
+}
+
+.communitychat-right .message-time {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.message-text {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.message-image img {
+    max-width: 100%;
+    /* max-height: 300px; */
+    border-radius: 8px;
+}
+
+.message-file {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
 }
 
-.fileLink {
+.file-icon {
+    color: #6c757d;
+}
+
+.file-link {
     color: #007bff;
     text-decoration: none;
 }
 
-.fileLink:hover {
+.file-link:hover {
     text-decoration: underline;
 }
 
-.codeBlock {
-    background-color: #f4f4f4;
-    padding: 10px;
-    font-family: monospace;
-    white-space: pre-wrap;
-}
-
-.chatInputArea {
+.communitychat-input {
+    padding: 15px;
+    border-top: 1px solid #eee;
     display: flex;
-    margin-top: 10px;
+    gap: 10px;
+    align-items: center;
 }
 
-.messageInput {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ddd;
-}
-
-.sendButton {
-    background-color: #000000;
-    color: white;
-    padding: 8px 16px;
+.attach-button {
+    background: none;
     border: none;
+    color: #6c757d;
     cursor: pointer;
-    margin: 0px 11px;
-    border-radius: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
 }
 
-.latestButton {
-    background-color: white;
-    color: royalblue;
-    font-weight: 600;
-    border: 1px solid royalblue !important;
-    border-radius: 10px;
+.attach-button:hover {
+    background-color: #f8f9fa;
 }
 
-.onlineUsers {
-    width: 250px;
-    background-color: white;
-    border-left: 1px solid #ddd;
+.file-name {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.message-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.communitychat-send {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    /* background-color: #007bff; */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.communitychat-send:hover {
+    background-color: #0056b3;
+}
+
+.communitychat-sidebar {
+    width: 280px;
+    background: white;
+    border-radius: 8px;
     padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.userList {
-    margin-top: 10px;
+.member-list {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.userItem {
+.no-members {
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.communitychat-member {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
 }
 
-.userAvatar {
-    width: 30px;
-    height: 30px;
+.communitychat-member:hover {
+    background-color: #f8f9fa;
+}
+
+.member-avatar img {
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background-color: #f0f0f0;
+    object-fit: cover;
+}
+
+.member-info {
+    flex: 1;
+}
+
+.member-name {
+    font-weight: 500;
+    color: #333;
+}
+
+.communitychat-contests {
+    padding: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.communitychat-contest {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
     overflow: hidden;
 }
 
-.userAvatar img {
+.communitychat-contest-content {
+    padding: 20px;
+}
+
+.communitychat-contest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.communitychat-contest-header span {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.contest-type {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.communitychat-contest-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px 0;
+}
+
+.communitychat-contest-description {
+    color: #666;
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+}
+
+.communitychat-contest-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.communitychat-contest-details span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.communitychat-contest-level {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.communitychat-contest-level.easy {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.communitychat-contest-level.medium {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.communitychat-contest-level.hard {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.communitychat-contest-prizes {
+    background: #f5f5f5;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+}
+
+.communitychat-contest-prizes p:first-child {
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.communitychat-contest-prizes p:last-child {
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.communitychat-no-contests {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 20px;
+}
+
+.no-contests-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #666;
+}
+
+.no-contests-content svg {
+    color: #ccc;
+    margin-bottom: 16px;
+}
+
+.no-contests-content h3 {
+    color: #333;
+    margin: 0 0 8px 0;
+    font-size: 1.5em;
+}
+
+.no-contests-content p {
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+.no-contests-content p:last-child {
+    color: #007bff;
+    font-weight: 500;
+}
+
+.job-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 14px;
+}
+
+.job-button:hover {
+    background-color: #218838;
+}
+
+.jobs-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.jobs-popup {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.jobs-popup-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.jobs-popup-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.close-button:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.jobs-popup-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.job-image {
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+}
+
+.job-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.userInfo {
-    margin-left: 10px;
+.job-details {
+    padding: 20px;
 }
 
-.userName {
-    font-weight: bold;
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
 }
 
-.userRole {
-    font-size: 12px;
-    color: gray;
+.job-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-span.attach {
-    font-size: 20px;
-    padding: 7px;
-    border: 1px solid gray;
-    margin: 0px 13px;
-    border-radius: 10px;
+.job-tag {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.job-date {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.job-description {
+    color: #333;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+    white-space: pre-wrap;
+}
+
+.source-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    background: #e3f2fd;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.source-link:hover {
+    background: #bbdefb;
+    text-decoration: none;
+}
+
+.no-jobs {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.no-jobs p:first-child {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.no-jobs p:last-child {
+    color: #007bff;
+    font-weight: 500;
 }
 
   
