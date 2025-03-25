@@ -213,6 +213,28 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.no-data-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  text-align: center;
+  color: #666;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.no-data-message p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.no-data-message .sub-text {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
 .profileCard {
   background: white;
   padding: 24px;

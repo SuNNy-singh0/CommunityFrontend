@@ -3,6 +3,7 @@
     flex-direction: column;
     min-height: 100vh;
     background-color: #f5f7fb;
+    overflow-x: hidden;
 }
 
 .communitychat-header {
@@ -601,6 +602,14 @@
 .no-jobs p:last-child {
     color: #007bff;
     font-weight: 500;
+}
+@media (max-width: 768px) {
+    .communitychat-sidebar {
+     display: none;
+    }
+    .communitychat-header {
+        flex-direction: column;
+    }
 }
 
   

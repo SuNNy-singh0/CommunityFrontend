@@ -167,11 +167,9 @@ const MCQPage = () => {
       return;
     }
 
-    const selectedAnswer = mcqs[community].options[selectedIndex];
-
     try {
       const response = await fetch(
-        `http://localhost:8080/mcq/attempt?community=${encodeURIComponent(community)}&answer=${encodeURIComponent(selectedAnswer)}`, 
+        `http://localhost:8080/mcq/attempt?community=${encodeURIComponent(community)}&answer=${encodeURIComponent(selectedIndex)}`, 
         {
           method: 'POST',
           credentials: 'include',

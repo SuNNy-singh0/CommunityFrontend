@@ -280,16 +280,23 @@ const UserProfile = () => {
           {/* Performance Chart */}
           <div className="chartContainer">
             <h3 className="sectionTitle">Monthly Performance</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={performanceData}>
-                <XAxis dataKey="day" />
-                <YAxis />
-                <Tooltip />
-                <CartesianGrid strokeDasharray="3 3" />
-                <Line type="monotone" dataKey="score" stroke="green" strokeWidth={2} />
-              </LineChart>
-            </ResponsiveContainer>
-              {/* Recent Activity */}
+            {performanceData && performanceData.length >= 2 ? (
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={performanceData}>
+                  <XAxis dataKey="day" />
+                  <YAxis />
+                  <Tooltip />
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <Line type="monotone" dataKey="score" stroke="green" strokeWidth={2} />
+                </LineChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="no-data-message">
+                <p>Not enough data to show performance graph</p>
+                <p className="sub-text">Complete more MCQs to see your performance trend</p>
+              </div>
+            )}
+            {/* Recent Activity */}
            <div className="activity-container">
             <h3 className="section-title">Recent Activity</h3>
             {recentActivities && recentActivities.length > 0 ? (

@@ -11,6 +11,7 @@ const MCQform = () => {
         optionD: '',
         correctAnswer: '',
         community: '',
+        date: new Date().toISOString().split('T')[0], // Default to today's date
     });
 
     const [message, setMessage] = useState({ text: '', type: '' });
@@ -36,7 +37,8 @@ const MCQform = () => {
                     formData.optionD
                 ],
                 correctAnswer: formData.correctAnswer,
-                community: formData.community
+                community: formData.community,
+                date: formData.date
             };
 
             const response = await axios.post('http://localhost:8080/mcq/upload', mcqData, {
@@ -55,7 +57,8 @@ const MCQform = () => {
                 optionC: '',
                 optionD: '',
                 correctAnswer: '',
-                community: ''
+                community: '',
+                date: new Date().toISOString().split('T')[0]
             });
         } catch (error) {
             setMessage({ 
@@ -87,8 +90,20 @@ const MCQform = () => {
                         <option value="JAVA">Java</option>
                         <option value="MERN">MERN</option>
                         <option value="DSA">DSA</option>
-                       
                     </select>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="date">Date</label>
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        value={formData.date}
+                        onChange={handleChange}
+                        min={new Date().toISOString().split('T')[0]}
+                        required
+                    />
                 </div>
 
                 <div className="form-group">
@@ -167,8 +182,6 @@ const MCQform = () => {
                         <option value="3">Option D</option>
                     </select>
                 </div>
-
-              
 
                 <button type="submit" className="submit-button">
                     Upload MCQ
