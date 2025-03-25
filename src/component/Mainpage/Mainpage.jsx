@@ -19,9 +19,9 @@ function Mainpage() {
      <Community/>
      <Leaderboard/>
      <JobBanner/>
-     
+     <div id='mobile'>
      <Feature/>
-     
+     </div>
     
      <FAQ/>
      <Footer/>
