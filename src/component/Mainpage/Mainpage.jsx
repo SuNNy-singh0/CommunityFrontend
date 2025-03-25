@@ -7,7 +7,7 @@ import FAQ from './FAQ'
 import Footer from './Footer'
 import JobBanner from '../JobProfile/JobBanner'
 
-import MCQPage from '../MCQ/MCQpage'
+import MCQPage from '../MCQ/MCQPage'
 import Leaderboard from '../leaderboard/Leaderboard'
 
 function Mainpage() {
