@@ -1,0 +1,120 @@
+/* Container */
+.mcq-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px;
+  }
+  
+  /* Header */
+  .mcq-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .mcq-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+  }
+  .mcq-title span{
+    color: #6565ec;
+  }
+  .mcq-subtitle {
+    font-size: 16px;
+    color: #7f8c8d;
+  }
+  
+  /* MCQ Grid */
+  .mcq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Card */
+  .mcq-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  /* Question Header */
+  .mcq-question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .mcq-question {
+    font-size: 18px;
+    font-weight: 600;
+    color: #34495e;
+  }
+  .mcq-timer {
+    display: flex;
+    align-items: center;
+    color: #7f8c8d;
+  }
+  .mcq-timer-icon {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  
+  /* Options */
+  .mcq-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .mcq-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #6565ec;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .mcq-option:hover {
+    border-color: #333;
+  }
+  .mcq-radio {
+    accent-color: #3498db;
+    transform: scale(1.2);
+    margin-right: 10px;
+  }
+  .mcq-option-text {
+    font-size: 14px;
+    color: #2c3e50;
+  }
+  
+  /* Submit Button */
+  .mcq-submit-container {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .mcq-submit-btn {
+    background: linear-gradient(90deg, #7f3af6, #4a90e2);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  .mcq-submit-btn:hover {
+    background: #333;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .mcq-title {
+      font-size: 22px;
+    }
+    .mcq-subtitle {
+      font-size: 14px;
+    }
+  }
+  
