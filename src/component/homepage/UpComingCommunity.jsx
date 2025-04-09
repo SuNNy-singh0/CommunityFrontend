@@ -36,7 +36,7 @@ function UpComingCommunity() {
               <div key={community.id} className="unique_community_card">
                 {/* Badge */}
                 <div style={{
-                  background:'url("/communitybac.jpg")',
+                  background:'url("/upcoming.jpg")',
                   backgroundSize:'cover'
                 }}>
                 <div className="unique_community_badge">
