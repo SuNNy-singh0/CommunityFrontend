@@ -13,14 +13,14 @@ const communityData = [
   {
     id: "community_react",
     name: "React",
-    description: "Best Practices For React Performance Optimization",
+    description: "Best React frontend discussion",
     discussions: 57,
     imgSrc: "/structure.png", // Replace with actual React image path
   },
   {
     id: "community_python",
-    name: "Python",
-    description: "Best Practices For React Performance Optimization",
+    name: "Java",
+    description: "Best Java, J2EE discussion",
     discussions: 57,
     imgSrc: "/java.png", // Replace with actual Python image path
   },
@@ -32,11 +32,15 @@ const TopCommunities = () => {
       <h2 className="unique_top_communities_title">Top Communities</h2>
 
       <div className="unique_top_communities_slider">
-        <button className="unique_community_arrow unique_community_arrow_left">{"<"}</button>
+        
 
         {communityData.map((community) => (
           <div key={community.id} className="unique_community_card">
             {/* Badge */}
+            <div style={{
+              background:'url("/communitybac.jpg")',
+              backgroundSize:'cover'
+            }}>
             <div className="unique_community_badge">
               <FaStar className="unique_community_star_icon" />
               <span>12,500+ Developers</span>
@@ -46,7 +50,7 @@ const TopCommunities = () => {
             <div className="unique_community_image_container">
               <img src={community.imgSrc} alt={community.name} className="unique_community_image" />
             </div>
-
+           </div>
             {/* Content */}
             <h3 className="unique_community_name">{community.name}</h3>
             <p className="unique_community_description">{community.description}</p>
@@ -62,7 +66,7 @@ const TopCommunities = () => {
           </div>
         ))}
 
-        <button className="unique_community_arrow unique_community_arrow_right">{">"}</button>
+        
       </div>
     </div>
   );

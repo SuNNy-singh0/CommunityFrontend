@@ -47,15 +47,16 @@
     margin-bottom: 15px;
   }
   .mcq-question {
-    font-size: 18px;
-    font-weight: 600;
-    color: #34495e;
-  }
-  .mcq-timer {
-    display: flex;
-    align-items: center;
-    color: #7f8c8d;
-  }
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+}
+.mcq-timer {
+  display: flex
+;
+  align-items: center;
+  color: #037814;
+}
   .mcq-timer-icon {
     margin-right: 5px;
     font-size: 14px;
@@ -80,8 +81,8 @@
     border-color: #333;
   }
   .mcq-radio {
-    accent-color: #3498db;
-    transform: scale(1.2);
+    accent-color: #6565ec;
+    transform: scale(1.3);
     margin-right: 10px;
   }
   .mcq-option-text {

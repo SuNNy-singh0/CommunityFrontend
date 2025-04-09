@@ -10,7 +10,7 @@
     font-size: 28px;
     font-weight: 700;
     color: #2c3e50;
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
   }
   
@@ -20,6 +20,7 @@
     align-items: center;
     gap: 15px;
     overflow-x: auto;
+    justify-content: center;
   }
   
   /* Navigation Arrows */
@@ -44,40 +45,59 @@
   .unique_community_card {
     background: white;
     border-radius: 12px;
-    padding: 20px;
+    padding: 0px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
     position: relative;
+    margin: 10px;
+    border: 1px solid gray;
+    height: 270px;
   }
   
   /* Badge */
   .unique_community_badge {
     position: absolute;
-    top: 10px;
+    top: 26px;
     left: 10px;
     background: #ecf0f1;
     padding: 5px 10px;
     border-radius: 15px;
     font-size: 12px;
-    display: flex;
+    display: flex
+;
     align-items: center;
     gap: 5px;
     color: #2c3e50;
-  }
+}
   .unique_community_star_icon {
-    color: gold;
+    color: blueviolet;
   }
   
   /* Community Image */
   .unique_community_image_container {
-    margin-top: 30px;
-  }
-  .unique_community_image {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-  }
+    /* margin-top: 30px; */
+    height: 78px;
+    display: flex
+;
+    text-align: right;
+    justify-content: end;
+    /* border: 2px solid; */
+    align-content: center;
+}
+.unique_community_image {
+  width: 59px;
+  height: 59px;
+  padding: 5px;
+  background-color: cornsilk;
+  top: 10px;
+  margin: 10px;
+  margin-top: 42px;
+  object-fit: contain;
+  border: 1px solid;
+  border-radius: 10px;
+  /* background-color: #969090; */
+}
   
   /* Community Name */
   .unique_community_name {
@@ -85,6 +105,8 @@
     font-weight: bold;
     margin-top: 10px;
     color: #2c3e50;
+    text-align: left;
+    margin-left: 10px;
   }
   
   /* Community Description */
@@ -92,6 +114,8 @@
     font-size: 14px;
     color: #7f8c8d;
     margin: 5px 0;
+    text-align: left;
+    margin-left: 10px;
   }
   
   /* Discussion Count */
@@ -100,8 +124,9 @@
     align-items: center;
     gap: 5px;
     font-size: 14px;
-    color: #3498db;
-    margin: 10px 0;
+    color: black;
+    margin: 10px 10px;
+
   }
   .unique_community_comment_icon {
     font-size: 16px;
@@ -109,24 +134,27 @@
   
   /* Join Button */
   .unique_community_join_btn {
-    background: #3498db;
-    color: white;
+    background: #ffffff;
+    color: #003e99;
     padding: 8px 20px;
     border-radius: 5px;
-    border: none;
-    font-size: 14px;
+    border: 1px solid blueviolet;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease;
+    float: left;
+    margin-left: 10px;
   }
   .unique_community_join_btn:hover {
-    background: #2980b9;
+    background: #333;
+    color: white;
   }
   
   /* Responsive */
   @media (max-width: 768px) {
     .unique_top_communities_slider {
-      flex-wrap: nowrap;
-      overflow-x: auto;
+     flex-direction: column;
     }
   
     .unique_community_card {
