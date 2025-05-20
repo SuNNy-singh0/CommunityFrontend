@@ -1,0 +1,633 @@
+/* Highly unique class names: xylo-dream-... */
+
+.xylo-dream-bg {
+  background: #f7f8fd;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 40px;
+}
+.xylo-dream-header {
+  background: #eef0fb;
+  padding: 32px 0 24px 0;
+  text-align: center;
+}
+.xylo-dream-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #23235f;
+  margin-bottom: 6px;
+}
+.xylo-dream-sub {
+  color: #7c7c9a;
+  font-size: 1rem;
+  margin-bottom: 18px;
+}
+.xylo-dream-searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(44, 62, 80, 0.06);
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 8px 14px;
+  gap: 8px;
+}
+.xylo-dream-searchbar input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  width: 100%;
+  padding: 6px 0;
+}
+.xylo-dream-searchicon {
+  color: #bdbddb;
+  font-size: 1.2rem;
+}
+
+.xylo-dream-filters-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1150px;
+  margin: 22px auto 0 auto;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.xylo-dream-filters {
+  display: flex;
+  gap: 8px;
+}
+.xylo-dream-filter {
+  background: #f2f2fc;
+  color: #6c63ff;
+  border-radius: 8px;
+  padding: 4px 14px;
+  font-size: 0.96rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.xylo-dream-filter-active {
+  background: #6c63ff;
+  color: #fff;
+}
+.xylo-dream-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px 14px;
+  color: #7c7c9a;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+}
+.xylo-dream-login-signup {
+  display: flex;
+  gap: 8px;
+}
+.xylo-dream-btn {
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.xylo-dream-btn-outline {
+  background: #fff;
+  color: #6c63ff;
+  border: 2px solid #6c63ff;
+}
+.xylo-dream-btn-purple {
+  background: #a259ff;
+  color: #fff;
+}
+
+.xylo-dream-main-content {
+  display: flex;
+  max-width: 1150px;
+  margin: 32px auto 0 auto;
+  gap: 32px;
+}
+.xylo-dream-jobs {
+  flex: 2;
+}
+.xylo-dream-jobs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.xylo-dream-jobs-header h3 {
+  font-size: 1.28rem;
+  color: #23235f;
+  font-weight: 700;
+}
+.xylo-dream-jobs-count {
+  color: #6c63ff;
+  font-weight: 600;
+}
+.xylo-dream-jobs-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+.xylo-dream-jobs-sort select {
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  padding: 2px 8px;
+  font-size: 1rem;
+}
+.xylo-dream-jobs-list {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.xylo-dream-job-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px rgba(44, 62, 80, 0.07);
+  display: flex;
+  gap: 18px;
+  padding: 18px 18px 18px 0;
+  align-items: flex-start;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.xylo-dream-job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 18px rgba(44, 62, 80, 0.12);
+}
+.xylo-dream-job-img {
+  width: 110px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+  margin-right: 10px;
+  cursor: zoom-in;
+  transition: transform 0.2s;
+}
+
+.xylo-dream-job-img:hover {
+  transform: scale(1.05);
+}
+.xylo-dream-job-content {
+  flex: 1;
+}
+.xylo-dream-job-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.xylo-dream-job-title-row h4 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #23235f;
+  margin: 0;
+}
+.xylo-dream-job-time {
+  color: #bdbddb;
+  font-size: 0.92rem;
+}
+.xylo-dream-job-company {
+  color: #7c7c9a;
+  font-size: 0.98rem;
+  margin: 2px 0 7px 0;
+}
+.xylo-dream-job-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 7px;
+}
+.xylo-dream-job-tag {
+  background: #f2f2fc;
+  color: #6c63ff;
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 0.93rem;
+  font-weight: 500;
+}
+.xylo-dream-job-bottom-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.xylo-dream-job-badges {
+  display: flex;
+  gap: 6px;
+}
+.xylo-dream-job-badge {
+  background: #ffd86f;
+  color: #23235f;
+  border-radius: 5px;
+  padding: 2px 7px;
+  font-size: 0.91rem;
+  font-weight: 600;
+}
+.xylo-dream-job-salary {
+  color: #43e97b;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.xylo-dream-job-apply {
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.97rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.xylo-dream-pagination {
+  display: flex;
+  gap: 6px;
+  margin: 18px 0 0 0;
+}
+.xylo-dream-pagination-btn {
+  background: #f2f2fc;
+  color: #6c63ff;
+  border-radius: 6px;
+  padding: 3px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+.xylo-dream-pagination-btn-active {
+  background: #6c63ff;
+  color: #fff;
+}
+
+/* Image Popup Styles */
+.xylo-dream-image-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: xylo-fade-in 0.3s ease-in-out;
+}
+
+.xylo-dream-image-popup-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  animation: xylo-scale-in 0.3s ease-in-out;
+}
+
+.xylo-dream-image-popup-img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.xylo-dream-image-popup-close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background: #6c63ff;
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes xylo-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes xylo-scale-in {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+/* Loading, error, and no jobs states */
+.xylo-dream-loading,
+.xylo-dream-error,
+.xylo-dream-no-jobs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px rgba(44, 62, 80, 0.07);
+  text-align: center;
+  min-height: 200px;
+}
+
+.xylo-dream-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f2f2fc;
+  border-top: 3px solid #6c63ff;
+  border-radius: 50%;
+  animation: xylo-spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes xylo-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.xylo-dream-error p,
+.xylo-dream-no-jobs p {
+  color: #7c7c9a;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.xylo-dream-filter {
+  background: #f2f2fc;
+  color: #6c63ff;
+  border-radius: 8px;
+  padding: 4px 14px;
+  font-size: 0.96rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.xylo-dream-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.xylo-dream-sidebar-section {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px rgba(44, 62, 80, 0.07);
+  padding: 18px 18px 14px 18px;
+}
+.xylo-dream-sidebar-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #23235f;
+  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.xylo-dream-sidebar-employers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.xylo-dream-company-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f2f2fc;
+  border-radius: 8px;
+  color: #6c63ff;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.xylo-dream-company-link:hover {
+  background: #6c63ff;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
+}
+
+.xylo-dream-company-icon {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.xylo-dream-company-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .xylo-dream-sidebar-employers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.xylo-dream-sidebar-input-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.xylo-dream-sidebar-input-row input {
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 6px 10px;
+  font-size: 1rem;
+}
+.xylo-dream-sidebar-employers-list {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+}
+.xylo-dream-sidebar-employer {
+  font-size: 2.1rem;
+  color: #7c7c9a;
+  background: #f2f2fc;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+}
+.xylo-dream-sidebar-salary-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.xylo-dream-sidebar-salary-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.xylo-dream-sidebar-salary-role {
+  font-size: 0.97rem;
+  color: #7c7c9a;
+  width: 120px;
+}
+.xylo-dream-sidebar-salary-bar-bg {
+  background: #f2f2fc;
+  border-radius: 8px;
+  width: 100%;
+  height: 10px;
+  position: relative;
+}
+.xylo-dream-sidebar-salary-bar {
+  height: 10px;
+  border-radius: 8px;
+}
+
+.xylo-dream-cta {
+  background: #eef0fb;
+  text-align: center;
+  padding: 32px 0 24px 0;
+  margin-top: 40px;
+}
+.xylo-dream-cta h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #23235f;
+  margin-bottom: 7px;
+}
+.xylo-dream-cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.xylo-dream-cta-row input {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 7px 12px;
+  font-size: 1rem;
+  min-width: 220px;
+}
+
+.xylo-dream-next-role {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 950px;
+  margin: 38px auto 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 14px rgba(44, 62, 80, 0.07);
+  padding: 30px 34px;
+}
+.xylo-dream-next-role-text {
+  flex: 2;
+}
+.xylo-dream-next-role-text h4 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #23235f;
+  margin-bottom: 7px;
+}
+.xylo-dream-next-role-text p {
+  color: #7c7c9a;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+.xylo-dream-next-role-img {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.xylo-dream-next-role-img img {
+  max-width: 170px;
+  border-radius: 10px;
+  background: #eef0fb;
+}
+
+/* Responsive Styles */
+@media (max-width: 1100px) {
+  .xylo-dream-main-content {
+    flex-direction: column;
+    gap: 0;
+  }
+  .xylo-dream-sidebar {
+    margin-top: 28px;
+    flex-direction: row;
+    gap: 18px;
+  }
+  .xylo-dream-sidebar-section {
+    flex: 1;
+  }
+}
+@media (max-width: 800px) {
+  .xylo-dream-main-content {
+    flex-direction: column;
+    gap: 0;
+  }
+  .xylo-dream-next-role {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 12px;
+    gap: 18px;
+  }
+  .xylo-dream-next-role-img {
+    justify-content: center;
+    width: 100%;
+  }
+  .xylo-dream-next-role-img img {
+    max-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .xylo-dream-header {
+    padding: 18px 0 14px 0;
+  }
+  .xylo-dream-header h2 {
+    font-size: 1.2rem;
+  }
+  .xylo-dream-filters-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 0 8px;
+  }
+  .xylo-dream-main-content {
+    padding: 0 6px;
+  }
+  .xylo-dream-job-card {
+    flex-direction: column;
+    padding: 14px 10px;
+    gap: 8px;
+  }
+  .xylo-dream-job-img {
+    width: 100%;
+    height: 80px;
+    border-radius: 10px 10px 0 0;
+    margin: 0 0 8px 0;
+  }
+  .xylo-dream-next-role {
+    padding: 12px 4px;
+  }
+}

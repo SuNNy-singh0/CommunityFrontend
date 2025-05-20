@@ -14,6 +14,9 @@ import JobBoard from './component/JobProfile/JobBoard';
 import MCQform from './component/MCQ/MCQform';
 import CommunityChat from './component/community/CommunityChat';
 import Homepage from './component/homepage/Homepage';
+import CommunityChatUniqueXylo from './component/homepage/CommunityChatUniqueXylo';
+import JobBoardUniqueZephyr from './component/homepage/JobBoardUniqueZephyr';
+import DreamTechRoleUniqueXylo from './component/homepage/DreamTechRoleUniqueXylo';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -33,7 +36,10 @@ function App() {
           <Route path='/jobform' element={<JobForm/>} />
           <Route path='/MCQForm' element={<MCQform/>} />
           <Route path='/jobboard' element={<JobBoard/>} />
+          <Route path='/job' element={<JobBoardUniqueZephyr/>} />
           <Route path='/newpage' element={<Homepage/>} />
+          <Route path='/techjob' element={<DreamTechRoleUniqueXylo/>} />
+          <Route path='/communitychat/:communityname/:username' element={<CommunityChatUniqueXylo/>} />
           <Route path='/Community/:username/:userid' element={<CommunityChat/>} />
         </Routes>
       </BrowserRouter>

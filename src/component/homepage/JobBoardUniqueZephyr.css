@@ -1,0 +1,623 @@
+/* JobBoardUniqueZephyr.css */
+/* Using unique 'zephyr-jobboard-' prefix to avoid CSS conflicts */
+
+.zephyr-jobboard-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+  background-color: #f5f7fa;
+}
+
+.zephyr-jobboard-header {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.zephyr-jobboard-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.zephyr-jobboard-header p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.zephyr-jobboard-search-box {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.zephyr-jobboard-search-input {
+  width: 100%;
+  padding: 14px 20px 14px 45px;
+  border-radius: 30px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.zephyr-jobboard-search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.zephyr-jobboard-filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.zephyr-jobboard-filter-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zephyr-jobboard-total-jobs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.zephyr-jobboard-total-count {
+  background-color: #7c3aed;
+  color: white;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.zephyr-jobboard-filter-pill {
+  background-color: #f3f4f6;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.zephyr-jobboard-filter-right {
+  display: flex;
+  gap: 10px;
+}
+
+.zephyr-jobboard-filter-button,
+.zephyr-jobboard-sort-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background-color: #f3f4f6;
+  font-size: 0.85rem;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.zephyr-jobboard-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.zephyr-jobboard-tag {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.zephyr-jobboard-tag-0 { background-color: #dcfce7; color: #166534; }
+.zephyr-jobboard-tag-1 { background-color: #dbeafe; color: #1e40af; }
+.zephyr-jobboard-tag-2 { background-color: #fef3c7; color: #92400e; }
+.zephyr-jobboard-tag-3 { background-color: #ede9fe; color: #5b21b6; }
+.zephyr-jobboard-tag-4 { background-color: #fee2e2; color: #b91c1c; }
+.zephyr-jobboard-tag-5 { background-color: #e0f2fe; color: #0369a1; }
+.zephyr-jobboard-tag-6 { background-color: #fce7f3; color: #9d174d; }
+.zephyr-jobboard-tag-7 { background-color: #ecfccb; color: #3f6212; }
+.zephyr-jobboard-tag-8 { background-color: #ffedd5; color: #c2410c; }
+.zephyr-jobboard-tag-9 { background-color: #f3f4f6; color: #4b5563; }
+
+.zephyr-jobboard-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.zephyr-jobboard-main {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.zephyr-jobboard-main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.zephyr-jobboard-main-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.zephyr-jobboard-sort-options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.zephyr-jobboard-sort-selected {
+  font-weight: 500;
+  color: #111827;
+}
+
+.zephyr-jobboard-job-list {
+  padding: 0 20px;
+}
+
+.zephyr-jobboard-job-card {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.zephyr-jobboard-job-image {
+  flex: 0 0 120px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.zephyr-jobboard-job-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zephyr-jobboard-job-content {
+  flex: 1;
+}
+
+.zephyr-jobboard-job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.zephyr-jobboard-job-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.zephyr-jobboard-job-time {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.zephyr-jobboard-job-company {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.zephyr-jobboard-job-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #6b7280;
+}
+
+.zephyr-jobboard-job-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+.zephyr-jobboard-job-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.zephyr-jobboard-job-skill {
+  background-color: #f3f4f6;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+.zephyr-jobboard-job-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zephyr-jobboard-job-salary {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.zephyr-jobboard-apply-btn {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.zephyr-jobboard-apply-btn:hover {
+  background-color: #6d28d9;
+}
+
+.zephyr-jobboard-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.zephyr-jobboard-pagination-prev {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.zephyr-jobboard-pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.zephyr-jobboard-pagination-active {
+  background-color: #7c3aed;
+  color: white;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.zephyr-jobboard-sidebar > div {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.zephyr-jobboard-sidebar h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.zephyr-jobboard-subscribe p {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+.zephyr-jobboard-subscribe input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.zephyr-jobboard-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.zephyr-jobboard-subscribe-btn {
+  width: 100%;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.zephyr-jobboard-company-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.zephyr-jobboard-company-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  color: #6b7280;
+}
+
+.zephyr-jobboard-featured-companies p {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.zephyr-jobboard-salary-insights p {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+.zephyr-jobboard-salary-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.zephyr-jobboard-salary-role {
+  flex: 0 0 40%;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.zephyr-jobboard-salary-progress {
+  flex: 1;
+  height: 8px;
+  background-color: #f3f4f6;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 10px;
+}
+
+.zephyr-jobboard-salary-bar {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.zephyr-jobboard-salary-bar-0 { width: 85%; background-color: #10b981; }
+.zephyr-jobboard-salary-bar-1 { width: 75%; background-color: #3b82f6; }
+.zephyr-jobboard-salary-bar-2 { width: 80%; background-color: #f59e0b; }
+.zephyr-jobboard-salary-bar-3 { width: 90%; background-color: #8b5cf6; }
+.zephyr-jobboard-salary-bar-4 { width: 95%; background-color: #ef4444; }
+
+.zephyr-jobboard-salary-amount {
+  flex: 0 0 20%;
+  text-align: right;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.zephyr-jobboard-salary-footer {
+  font-size: 0.75rem !important;
+  color: #9ca3af !important;
+  text-align: center;
+  margin-top: 15px !important;
+}
+
+.zephyr-jobboard-footer-banner {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 40px 0;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.zephyr-jobboard-banner-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.zephyr-jobboard-banner-content p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.zephyr-jobboard-banner-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.zephyr-jobboard-banner-btn-primary {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.zephyr-jobboard-banner-btn-secondary {
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.zephyr-jobboard-cta-section {
+  display: flex;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.zephyr-jobboard-cta-content {
+  flex: 1;
+  padding: 40px;
+}
+
+.zephyr-jobboard-cta-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.zephyr-jobboard-cta-content p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+
+.zephyr-jobboard-cta-btn {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.zephyr-jobboard-cta-small {
+  font-size: 0.8rem !important;
+  color: #9ca3af !important;
+  margin: 0 !important;
+}
+
+.zephyr-jobboard-cta-image {
+  flex: 1;
+  position: relative;
+}
+
+.zephyr-jobboard-cta-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .zephyr-jobboard-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .zephyr-jobboard-sidebar {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .zephyr-jobboard-filter-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .zephyr-jobboard-filter-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .zephyr-jobboard-job-card {
+    flex-direction: column;
+  }
+  
+  .zephyr-jobboard-job-image {
+    width: 100%;
+    flex: 0 0 auto;
+    height: 150px;
+  }
+  
+  .zephyr-jobboard-cta-section {
+    flex-direction: column;
+  }
+  
+  .zephyr-jobboard-cta-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .zephyr-jobboard-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .zephyr-jobboard-banner-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .zephyr-jobboard-pagination {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .zephyr-jobboard-job-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .zephyr-jobboard-apply-btn {
+    width: 100%;
+  }
+}

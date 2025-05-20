@@ -20,10 +20,11 @@ function Community() {
     const checkUserCommunities = async (username) => {
         try {
             const token = getToken();
+           
             const response = await fetch(`http://localhost:8080/community/user/${username}/communities`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
-                }
+                },
             });
             if (response.ok) {
                 const data = await response.json();

@@ -1,18 +1,19 @@
 import React from "react";
 import { FaStar, FaComments } from "react-icons/fa";
-import "./TopCommunities.css"; // Import CSS file
+import "./TopCommunities.css";
+import { useNavigate } from 'react-router-dom';
 
 const communityData = [
   {
     id: "community_mongo",
-    name: "DataBase",
+    name: "DSA",
     description: "Best SQL and no Sql discussion and statement",
     discussions: 57,
     imgSrc: "/database.png", // Replace with actual MongoDB image path
   },
   {
     id: "community_react",
-    name: "React",
+    name: "MERN",
     description: "Best React frontend discussion",
     discussions: 57,
     imgSrc: "/structure.png", // Replace with actual React image path
@@ -26,7 +27,8 @@ const communityData = [
   },
 ];
 
-const TopCommunities = () => {
+const TopCommunities = ({ username }) => {
+  const navigate = useNavigate();
   return (
     <div className="unique_top_communities_container">
       <h2 className="unique_top_communities_title">Top Communities</h2>
@@ -54,15 +56,22 @@ const TopCommunities = () => {
             {/* Content */}
             <h3 className="unique_community_name">{community.name}</h3>
             <p className="unique_community_description">{community.description}</p>
-
+           
             {/* Discussion Count */}
-            <div className="unique_community_discussions">
-              <FaComments className="unique_community_comment_icon" />
-              <span>{community.discussions} New Discussions Today</span>
+            <div className="unique_community_actions">
+          
+              <button 
+                className="unique_community_join_btn"
+                onClick={() => navigate(`/communitychat/${community.name}/${username}`)}
+              >
+                Join Community
+              </button>
+              
             </div>
-
-            {/* Button */}
-            <button className="unique_community_join_btn">Join Community</button>
+            <div className="unique_discussion_count">
+                <FaComments className="unique_comments_icon" />
+                <span>{community.discussions} Discussions</span>
+              </div>
           </div>
         ))}
 

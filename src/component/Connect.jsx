@@ -14,6 +14,12 @@ import {
   FaFileAlt,
   FaTimes,
   FaExternalLinkAlt,
+  FaChevronLeft,
+  FaChevronRight,
+  FaUsers,
+  FaDownload,
+  FaExpand,
+  FaEye
 } from "react-icons/fa";
 import { MdOutlineAttachment } from "react-icons/md";
 import { IoMdExit } from "react-icons/io";
@@ -38,6 +44,10 @@ const Connect = () => {
   const [showJobsPopup, setShowJobsPopup] = useState(false);
   const [jobs, setJobs] = useState([]);
   const [userProfiles, setUserProfiles] = useState({});
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const messagesEndRef = useRef(null);
+  const [fullScreenImage, setFullScreenImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
 
   // Fetch community members
   useEffect(() => {
@@ -186,6 +196,27 @@ const Connect = () => {
       
       setSelectedFile(file);
       setFileName(file.name);
+      
+      // Generate preview for images
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          setImagePreview(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        setImagePreview(null);
+      }
+    }
+  };
+  
+  // Clear image preview
+  const clearImagePreview = () => {
+    setImagePreview(null);
+    setSelectedFile(null);
+    setFileName("");
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
     }
   };
 
@@ -350,6 +381,20 @@ const Connect = () => {
     inputRef.current.focus();
   };
 
+  const handleDownloadImage = (url, filename) => {
+    fetch(url)
+      .then(response => response.blob())
+      .then(blob => {
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename || 'image';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      })
+      .catch(error => console.error('Error downloading image:', error));
+  };
+
   const renderMessage = (msg) => {
     if (msg.messageType === 'image') {
       return (
@@ -357,8 +402,31 @@ const Connect = () => {
           <img 
             src={msg.fileUrl} 
             alt={msg.content} 
-            style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: '8px' }}
+            style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: '8px', cursor: 'pointer' }}
+            onClick={() => setFullScreenImage({
+              url: msg.fileUrl,
+              alt: msg.content
+            })}
           />
+          <div className="image-actions">
+            <button 
+              className="image-action-btn"
+              onClick={() => setFullScreenImage({
+                url: msg.fileUrl,
+                alt: msg.content
+              })}
+              title="View full screen"
+            >
+              <FaExpand />
+            </button>
+            <button 
+              className="image-action-btn"
+              onClick={() => handleDownloadImage(msg.fileUrl, msg.content)}
+              title="Download image"
+            >
+              <FaDownload />
+            </button>
+          </div>
         </div>
       );
     } else if (msg.messageType === 'file') {
@@ -377,6 +445,37 @@ const Connect = () => {
       );
     }
     return <p className="message-text">{msg.content}</p>;
+  };
+  
+  // Full screen image component
+  const FullScreenImageView = () => {
+    if (!fullScreenImage) return null;
+    
+    return (
+      <div className="fullscreen-overlay" onClick={() => setFullScreenImage(null)}>
+        <div className="fullscreen-container">
+          <button className="close-fullscreen" onClick={() => setFullScreenImage(null)}>
+            <FaTimes />
+          </button>
+          <img 
+            src={fullScreenImage.url} 
+            alt={fullScreenImage.alt || 'Full screen image'} 
+            className="fullscreen-image"
+          />
+          <div className="fullscreen-actions">
+            <button 
+              className="fullscreen-action-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDownloadImage(fullScreenImage.url, fullScreenImage.alt);
+              }}
+            >
+              <FaDownload /> Download
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   const formatDate = (dateStr) => {
@@ -465,37 +564,42 @@ const Connect = () => {
     );
   };
 
+  // Scroll to bottom of messages when new messages arrive
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
+
   return (
     <div className="communitychat-container">
+      {/* Full screen image viewer */}
+      <FullScreenImageView />
       <header className="communitychat-header">
         <div className="header-left">
-          <img src="/logo.png" alt="Logo" className="logo" />
-          <h2>{username} Community</h2>
+          <img src="/logo.png" alt="Logo" className="logo-image" />
+          <span className="community-title">
+            <span className="community-icon"><FaUsers size={18} color="#24b47e" id="user_icon"/></span>
+            MERN Community
+          </span>
         </div>
         <div className="header-right">
           <button 
-            className="job-button" 
+            className="job-opportunities-btn" 
             onClick={() => {
               fetchJobs();
               setShowJobsPopup(true);
             }}
           >
-            <FaBriefcase size={16} />
+            <FaBriefcase size={16} style={{marginRight: 6}} />
             Job Opportunities
           </button>
           <div className="user-info">
-            <img 
-              src={getUserProfilePic(userid)}
-              alt={userid} 
-              style={{
-                width:'40px',
-                height:'40px'
-              }}
-            />
-            <span>{userid}</span>
+            <span className="user-avatar"></span>
+            <span className="user-name">TestUser2</span>
           </div>
-          <button className="exit-button" onClick={() => naviagate('/')}>
-            <IoMdExit size={20} />
+          <button className="exit-btn" onClick={() => naviagate('/')}> 
+            <IoMdExit size={20} style={{marginRight: 6}} />
             Exit
           </button>
         </div>
@@ -553,14 +657,19 @@ const Connect = () => {
       </div>
 
       <div className="communitychat-main">
-        
-        <div className="communitychat-chat">
-          {/* <div className="chat-header">
-            <div className="announcement">
-              <FaCalendar size={20} />
-              <p>Java Contest is at 29 March, 2024 2:00pm</p>
+        <div className={`communitychat-chat ${!sidebarOpen ? 'expanded' : ''}`}>
+          <div className="chat-header">
+            <div className="chat-header-title">
+              <h3>{username} Community Chat</h3>
             </div>
-          </div> */}
+            <button 
+              className="sidebar-toggle" 
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              aria-label={sidebarOpen ? "Close sidebar" : "Open sidebar"}
+            >
+              {sidebarOpen ? <FaChevronRight size={16} /> : <FaChevronLeft size={16} />}
+            </button>
+          </div>
 
           <div className="chat-messages">
             {messages.map((msg, index) => (
@@ -585,19 +694,52 @@ const Connect = () => {
                 </div>
               </div>
             ))}
+            <div ref={messagesEndRef} />
           </div>
 
+          {imagePreview && (
+            <div className="image-preview-container">
+              <div className="image-preview-header">
+                <h4>Image Preview</h4>
+                <button className="close-preview" onClick={clearImagePreview}>
+                  <FaTimes />
+                </button>
+              </div>
+              <div className="image-preview">
+                <img src={imagePreview} alt="Preview" />
+              </div>
+              <div className="image-preview-actions">
+                <button 
+                  className="preview-action-btn"
+                  onClick={() => setFullScreenImage({
+                    url: imagePreview,
+                    alt: fileName
+                  })}
+                >
+                  <FaEye /> View Full Screen
+                </button>
+                <button 
+                  className="preview-action-btn send"
+                  onClick={handleFileUpload}
+                >
+                  <FaPaperPlane /> Send Image
+                </button>
+              </div>
+            </div>
+          )}
+          
           <div className="communitychat-input">
             <input
               type="file"
               ref={fileInputRef}
               onChange={handleFileSelect}
               style={{ display: 'none' }}
+              accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
             />
             <button className="attach-button" onClick={() => fileInputRef.current?.click()}>
               <FaPaperclip size={20} />
             </button>
-            {fileName && (
+            {fileName && !imagePreview && (
               <span className="file-name">{fileName}</span>
             )}
             <input
@@ -606,20 +748,36 @@ const Connect = () => {
               placeholder="Type your message..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && (selectedFile && !imagePreview ? handleFileUpload() : handleSendMessage())}
               ref={inputRef}
+              disabled={imagePreview !== null}
             />
-            <button 
-              className="communitychat-send"
-              onClick={selectedFile ? handleFileUpload : handleSendMessage}
-            >
-              <FaPaperPlane size={16} />
-              Send
-            </button>
+            {!imagePreview && (
+              <button 
+                className="communitychat-send"
+                onClick={selectedFile ? handleFileUpload : handleSendMessage}
+              >
+                <FaPaperPlane size={16} />
+                Send
+              </button>
+            )}
           </div>
         </div>
 
-        <aside className="communitychat-sidebar">
-          <h3>Community Members</h3>
+        <aside className={`communitychat-sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
+          <div className="sidebar-header">
+            <div className="sidebar-title">
+              <FaUsers size={18} />
+              <h3>Community Members</h3>
+            </div>
+            <button 
+              className="sidebar-close-btn"
+              onClick={() => setSidebarOpen(false)}
+              aria-label="Close sidebar"
+            >
+              <FaTimes size={16} />
+            </button>
+          </div>
           <div className="member-list">
             {communityMembers.length === 0 ? (
               <p className="no-members">No members found</p>

@@ -1,0 +1,480 @@
+.xylo-community-root {
+  background: #f8fafc;
+  min-height: 100vh;
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.xylo-community-header {
+  background: #fff;
+  box-shadow: 0 2px 8px 0 #e5e7eb33;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.xylo-community-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.xylo-community-header-logo {
+  color: #6b4bff;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+.xylo-community-header-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.xylo-community-job-btn {
+  background: #6b4bff;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.xylo-community-job-btn:hover {
+  background: #5636d5;
+}
+.xylo-community-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.xylo-community-header-avatar {
+  background: #e5e7eb;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+.xylo-community-header-logout {
+  color: #757575;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.xylo-community-header-logout:hover {
+  color: #ef4444;
+}
+
+.xylo-community-events-strip {
+  background: #fefce8;
+  padding: 20px 24px 8px 24px;
+}
+.xylo-community-events-strip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.xylo-community-events-strip-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+}
+.xylo-community-events-strip-arrows {
+  display: flex;
+  gap: 8px;
+}
+.xylo-community-events-arrow {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #757575;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 4px 0 #e5e7eb33;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.xylo-community-events-arrow:hover {
+  background: #f3f4f6;
+}
+.xylo-community-events-list {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.xylo-community-event-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px 0 #e5e7eb33;
+  padding: 16px 16px 14px 16px;
+  min-width: 240px;
+  max-width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s;
+}
+.xylo-community-event-card:hover {
+  transform: translateY(-4px);
+}
+.xylo-community-event-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 4px 10px;
+  margin-bottom: 4px;
+  width: fit-content;
+}
+.xylo-community-event-badge-blue { background: #e0e7ff; color: #6b4bff; }
+.xylo-community-event-badge-purple { background: #ede9fe; color: #a259f7; }
+.xylo-community-event-badge-green { background: #d1fae5; color: #2ecc71; }
+.xylo-community-event-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 2px;
+}
+.xylo-community-event-date {
+  font-size: 0.93rem;
+  color: #757575;
+  margin-bottom: 3px;
+}
+.xylo-community-event-tags {
+  display: flex;
+  gap: 6px;
+}
+.xylo-community-event-tag {
+  background: #f3f4f6;
+  color: #444;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 7px;
+}
+
+.xylo-community-main {
+  display: flex;
+  gap: 24px;
+  margin: 24px 24px 0 24px;
+}
+.xylo-community-chat-panel {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px 0 #e5e7eb33;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+.xylo-community-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 18px 10px 18px;
+  border-bottom: 1px solid #f3f4f6;
+}
+.xylo-community-chat-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #222;
+}
+.xylo-community-chat-online {
+  font-size: 0.85rem;
+  background: #d1fae5;
+  color: #16a34a;
+  padding: 2px 8px;
+  border-radius: 7px;
+  margin-left: 8px;
+}
+.xylo-community-chat-search {
+  margin-left: auto;
+  color: #757575;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.xylo-community-chat-messages {
+  flex: 1 1 0;
+  /* overflow-y: auto; */
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #f8fafc;
+}
+.xylo-community-chat-message {
+  display: flex;
+  gap: 10px;
+  max-width: 80%;
+}
+.xylo-community-chat-message-left {
+  align-self: flex-start;
+}
+.xylo-community-chat-message-right {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+.xylo-community-chat-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: inline-block;
+}
+.xylo-community-avatar-purple { background: #ede9fe; }
+.xylo-community-avatar-blue { background: #e0e7ff; }
+.xylo-community-avatar-green { background: #d1fae5; }
+.xylo-community-avatar-red { background: #fee2e2; }
+.xylo-community-avatar-yellow { background: #fef9c3; }
+.xylo-community-avatar-indigo { background: #e0e7ff; }
+.xylo-community-avatar-pink { background: #fce7f3; }
+.xylo-community-avatar-orange { background: #ffedd5; }
+.xylo-community-chat-bubble-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.xylo-community-chat-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 2px;
+}
+.xylo-community-chat-user {
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: #333;
+}
+.xylo-community-chat-time {
+  font-size: 0.8rem;
+  color: #757575;
+}
+.xylo-community-chat-bubble {
+  padding: 10px 14px;
+  border-radius: 16px 16px 0 16px;
+  background: #f5f5f5;
+  color: #1f2937;
+  font-size: 0.98rem;
+  max-width: 340px;
+  word-break: break-word;
+  margin-bottom: 2px;
+}
+.xylo-community-chat-bubble-right {
+  background: #6b4bff;
+  color: #fff;
+  border-radius: 16px 16px 0 16px;
+}
+.xylo-community-chat-bubble-left {
+  background: #f5f5f5;
+  color: #1f2937;
+  border-radius: 16px 16px 16px 0;
+}
+.xylo-community-chat-img {
+  display: block;
+  margin-top: 8px;
+  max-width: 220px;
+  border-radius: 8px;
+}
+.xylo-community-chat-date-divider {
+  text-align: center;
+  color: #757575;
+  font-size: 0.85rem;
+  margin: 10px 0 0 0;
+}
+.xylo-community-chat-inputrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-top: 1px solid #f3f4f6;
+  background: #fff;
+}
+.xylo-community-chat-emoji,
+.xylo-community-chat-image {
+  color: #757575;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.xylo-community-chat-input {
+  flex: 1 1 0;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 9999px;
+  padding: 8px 14px;
+  font-size: 1rem;
+  outline: none;
+}
+.xylo-community-chat-send {
+  background: #6b4bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.xylo-community-chat-send:hover {
+  background: #5636d5;
+}
+
+.xylo-community-users-panel {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px 0 #e5e7eb33;
+  width: 320px;
+  min-width: 210px;
+  display: flex;
+  flex-direction: column;
+  max-height: 680px;
+  overflow: hidden;
+}
+.xylo-community-users-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px 10px 18px;
+  border-bottom: 1px solid #f3f4f6;
+}
+.xylo-community-users-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #222;
+}
+.xylo-community-users-toggle {
+  color: #757575;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.xylo-community-users-list {
+  flex: 1 1 0;
+  overflow-y: auto;
+  padding: 10px 8px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.xylo-community-user-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 7px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.xylo-community-user-row:hover {
+  background: #f3f4f6;
+}
+.xylo-community-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.xylo-community-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.xylo-community-user-name {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #333;
+}
+.xylo-community-user-status {
+  font-size: 0.85rem;
+  color: #757575;
+}
+.xylo-community-user-dot {
+  color: #16a34a;
+  font-size: 0.9rem;
+  margin-left: auto;
+}
+.xylo-community-users-invite {
+  background: #f3f4f6;
+  color: #444;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 0;
+  margin: 12px 12px 16px 12px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.xylo-community-users-invite:hover {
+  background: #e5e7eb;
+}
+
+@media (max-width: 1100px) {
+  .xylo-community-main {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .xylo-community-users-panel {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    max-height: 260px;
+  }
+}
+@media (max-width: 700px) {
+  .xylo-community-header, .xylo-community-events-strip, .xylo-community-main {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .xylo-community-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .xylo-community-main {
+    margin: 12px 0 0 0;
+  }
+  .xylo-community-users-panel {
+    max-height: 220px;
+  }
+}
+@media (max-width: 540px) {
+  .xylo-community-header {
+    padding: 10px 4px;
+  }
+  .xylo-community-events-strip {
+    padding: 12px 4px 4px 4px;
+  }
+  .xylo-community-main {
+    margin: 8px 0 0 0;
+    gap: 8px;
+  }
+  .xylo-community-users-panel {
+    max-height: 160px;
+  }
+  .xylo-community-event-card {
+    min-width: 180px;
+    max-width: 200px;
+    padding: 10px 8px 8px 8px;
+  }
+}

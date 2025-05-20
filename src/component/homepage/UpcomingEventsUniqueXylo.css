@@ -1,0 +1,272 @@
+.xylo-events-mainwrap {
+  background: #f8f9fb;
+  border-radius: 18px;
+  padding: 32px 0 0 0;
+  max-width: 100vw;
+  margin: 0 auto 24px auto;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.xylo-events-headerrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px 24px 40px;
+}
+
+.xylo-events-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1d1d2e;
+}
+
+.xylo-events-arrows {
+  display: flex;
+  gap: 12px;
+}
+.xylo-events-arrow {
+  border: none;
+  background: #f2f3fa;
+  border-radius: 7px;
+  font-size: 1.19rem;
+  color: #7b8cff;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.xylo-events-arrow:hover {
+  background: #a259f7;
+  color: #fff;
+}
+
+.xylo-events-cardswrap {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  padding: 0 32px 32px 32px;
+}
+
+.xylo-events-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px 0 rgba(80, 80, 180, 0.08);
+  max-width: 480px;
+  min-width: 340px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.18s;
+}
+.xylo-events-card:hover {
+  box-shadow: 0 6px 32px 0 rgba(80, 80, 180, 0.16);
+}
+
+.xylo-events-imgwrap {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+}
+.xylo-events-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px 14px 0 0;
+}
+.xylo-events-typebadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #a259f7;
+  color: #fff;
+  font-size: 0.97rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 8px;
+  letter-spacing: 0.02em;
+  z-index: 2;
+}
+.xylo-events-sharebtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #f2f3fa;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 8px;
+  color: #7b8cff;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background 0.17s, color 0.17s;
+  z-index: 2;
+}
+.xylo-events-sharebtn:hover {
+  background: #a259f7;
+  color: #fff;
+}
+
+.xylo-events-content {
+  padding: 22px 22px 8px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+}
+.xylo-events-title-row {
+  font-size: 1.31rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+  color: #22224c;
+}
+.xylo-events-date {
+  font-size: 0.98rem;
+  color: #6b6c85;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.xylo-events-dateicon {
+  color: #a259f7;
+  margin-right: 3px;
+  font-size: 1.08rem;
+}
+.xylo-events-desc {
+  font-size: 1.01rem;
+  color: #3b3b5b;
+  margin-bottom: 8px;
+  min-height: 38px;
+}
+
+.xylo-events-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.xylo-events-tag {
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 3px 12px;
+  color: #fff;
+  background: #7b8cff;
+}
+
+.xylo-events-regrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.xylo-events-reglbl {
+  font-size: 0.97rem;
+  color: #6b6c85;
+  font-weight: 500;
+}
+.xylo-events-regbarwrap {
+  flex: 1 1 0%;
+  display: flex;
+  align-items: center;
+}
+.xylo-events-regbarbg {
+  width: 100%;
+  height: 8px;
+  background: #f2f3fa;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: 8px;
+}
+.xylo-events-regbar {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.23s;
+}
+
+.xylo-events-timerow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+.xylo-events-timer {
+  font-size: 1.01rem;
+  color: #23234c;
+  background: #f7f8fd;
+  border-radius: 7px;
+  padding: 4px 14px;
+  font-weight: 600;
+}
+.xylo-events-savebtn {
+  border: none;
+  background: #f2f3fa;
+  border-radius: 7px;
+  font-size: 1.13rem;
+  color: #a0a1b6;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.xylo-events-savebtn:hover {
+  background: #a259f7;
+  color: #fff;
+}
+
+.xylo-events-registerbtn {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.09rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 13px 0;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  background: #a259f7;
+  transition: background 0.18s;
+  box-shadow: 0 2px 10px 0 rgba(80, 80, 180, 0.08);
+}
+.xylo-events-registerbtn:hover {
+  background: #7b8cff;
+}
+
+@media (max-width: 1100px) {
+  .xylo-events-cardswrap {
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+  }
+  .xylo-events-headerrow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 0 18px 18px 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .xylo-events-mainwrap {
+    padding: 8px 0 0 0;
+  }
+  .xylo-events-cardswrap {
+    padding: 0 2vw 18px 2vw;
+    gap: 14px;
+  }
+  .xylo-events-title {
+    font-size: 1.23rem;
+  }
+  .xylo-events-card {
+    min-width: 0;
+    max-width: 100vw;
+  }
+}
