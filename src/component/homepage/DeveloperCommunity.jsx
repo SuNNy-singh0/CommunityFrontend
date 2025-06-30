@@ -6,7 +6,7 @@ import DevNavbar from "./DevNavbar";
 const DeveloperCommunity = () => {
     return (
         <>
-        <DevNavbar/>
+        {/* <DevNavbar/> */}
         <div className="hero-container">
             {/* Navbar */}
           

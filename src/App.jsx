@@ -17,12 +17,15 @@ import Homepage from './component/homepage/Homepage';
 import CommunityChatUniqueXylo from './component/homepage/CommunityChatUniqueXylo';
 import JobBoardUniqueZephyr from './component/homepage/JobBoardUniqueZephyr';
 import DreamTechRoleUniqueXylo from './component/homepage/DreamTechRoleUniqueXylo';
+import DevNavbar from './component/homepage/DevNavbar';
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
+    
       <BrowserRouter>
+      <DevNavbar/>
         <Routes>
           {/* Route to join the room */}
           <Route path='/createroom' element={<Createroom />} />

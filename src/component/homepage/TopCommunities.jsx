@@ -7,21 +7,21 @@ const communityData = [
   {
     id: "community_mongo",
     name: "DSA",
-    description: "Best SQL and no Sql discussion and statement",
+    description: "Dive deep into Data Structures and Algorithms. Discuss problem-solving strategies, share coding challenges, and improve your algorithmic thinking with peers.",
     discussions: 57,
-    imgSrc: "/database.png", // Replace with actual MongoDB image path
+    imgSrc: "/Code.png", // Replace with actual MongoDB image path
   },
   {
     id: "community_react",
     name: "MERN",
-    description: "Best React frontend discussion",
+    description: "Join the top community for React and MERN stack enthusiasts. Discuss frontend frameworks, share resources, and collaborate on modern web development.",
     discussions: 57,
     imgSrc: "/structure.png", // Replace with actual React image path
   },
   {
     id: "community_python",
     name: "Java",
-    description: "Best Java, J2EE discussion",
+    description: "Connect with fellow Java developers to discuss Java, J2EE, frameworks, and enterprise application development.",
     discussions: 57,
     imgSrc: "/java.png", // Replace with actual Python image path
   },
@@ -62,16 +62,16 @@ const TopCommunities = ({ username }) => {
           
               <button 
                 className="unique_community_join_btn"
-                onClick={() => navigate(`/communitychat/${community.name}/${username}`)}
+                onClick={() => navigate(`/connect/${community.name}/${username}`)}
               >
                 Join Community
               </button>
               
             </div>
-            <div className="unique_discussion_count">
+            {/* <div className="unique_discussion_count">
                 <FaComments className="unique_comments_icon" />
                 <span>{community.discussions} Discussions</span>
-              </div>
+              </div> */}
           </div>
         ))}
 

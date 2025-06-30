@@ -1,45 +1,86 @@
-import React from "react";
-import { FaCrown } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FaCrown, FaSyncAlt } from "react-icons/fa";
 import "./MonthlyLeaderboardUniqueXylo.css";
-
-const leaderboardData = [
-  {
-    rank: 1,
-    name: "Alex Morgan",
-    tag: "MERN",
-    points: 2845,
-    tagColor: "#a259f7",
-    borderColor: "#ffd700",
-    crown: true,
-  },
-  {
-    rank: 2,
-    name: "Sarah Chen",
-    tag: "DSA",
-    points: 2456,
-    tagColor: "#3b82f6",
-    borderColor: "#c0c0c0",
-    crown: false,
-  },
-  {
-    rank: 3,
-    name: "Michael Johnson",
-    tag: "Java",
-    points: 2189,
-    tagColor: "#22c55e",
-    borderColor: "#cd7f32",
-    crown: false,
-  },
-];
-
-const currentUser = {
-  name: "David Wilson",
-  rank: 8,
-  points: 1845,
-  avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-};
+import { getUser } from "../../utils/auth";
 
 const MonthlyLeaderboardUniqueXylo = () => {
+  const [topPerformers, setTopPerformers] = useState([]);
+  const [userStats, setUserStats] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const user = getUser();
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
+
+  const fetchData = async () => {
+    if (!currentUser) {
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+    try {
+      const [topUsersResponse, userStatsResponse] = await Promise.all([
+        axios.get('http://localhost:8080/usercontrol/top-users'),
+        axios.get(`http://localhost:8080/usercontrol/user-rank/${currentUser.username}`)
+      ]);
+      console.log(userStatsResponse)
+      setTopPerformers(topUsersResponse.data.slice(0, 3).map((user, index) => ({
+        ...user,
+        rank: index + 1,
+        points: user.coins,
+        borderColor: index === 0 ? "#ffd700" : (index === 1 ? "#c0c0c0" : "#cd7f32"),
+        crown: index === 0,
+        tag: "Dev", // Default tag
+        tagColor: "#a259f7", // Default color
+        avatar: user.profilePicUrl || "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=256&h=256&facepad=2"
+      })));
+
+      setUserStats({
+        ...userStatsResponse.data,
+        name: currentUser.username,
+        avatar: userStatsResponse.profilePicUrl || "/hackthon.jpg"
+      });
+
+    } catch (error) {
+      console.error('Error fetching leaderboard data:', error);
+      setError('Failed to load leaderboard data');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [currentUser]);
+
+  if (loading) {
+    return <div className="xylo-leaderboard-container">Loading...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className="xylo-leaderboard-container">
+        <div style={{ color: 'red', textAlign: 'center', padding: '20px' }}>
+          {error}
+          <button 
+            onClick={fetchData}
+            style={{ marginLeft: '10px', padding: '5px 10px' }}
+          >
+            <FaSyncAlt /> Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="xylo-leaderboard-container">
       <h2 className="xylo-leaderboard-title">
@@ -47,7 +88,7 @@ const MonthlyLeaderboardUniqueXylo = () => {
       </h2>
       <div className="xylo-leaderboard-subtitle">Top contributors this month</div>
       <div className="xylo-leaderboard-top3-row">
-        {leaderboardData.map((user, idx) => (
+        {topPerformers.map((user, idx) => (
           <div
             key={user.rank}
             className={`xylo-leaderboard-card xylo-leaderboard-rank${user.rank}`}
@@ -56,7 +97,7 @@ const MonthlyLeaderboardUniqueXylo = () => {
             <div className={`xylo-leaderboard-rank-badge xylo-leaderboard-rank-badge${user.rank}`}>{`#${user.rank}`}</div>
             <div className="xylo-leaderboard-avatar-wrapper">
               <img
-                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=256&h=256&facepad=2"
+                src={user.avatar}
                 alt={user.name}
                 className="xylo-leaderboard-avatar"
               />
@@ -72,21 +113,23 @@ const MonthlyLeaderboardUniqueXylo = () => {
           </div>
         ))}
       </div>
-      <div className="xylo-leaderboard-current-user-wrapper">
-        <img src={currentUser.avatar} alt={currentUser.name} className="xylo-leaderboard-current-avatar" />
-        <div className="xylo-leaderboard-current-details">
-          <div className="xylo-leaderboard-current-label">Your Current Ranking</div>
-          <div className="xylo-leaderboard-current-name">{currentUser.name}</div>
+      {userStats && (
+        <div className="xylo-leaderboard-current-user-wrapper">
+          {/* <img src={userStats.avatar} alt={userStats.name} className="xylo-leaderboard-current-avatar" /> */}
+          <div className="xylo-leaderboard-current-details">
+            <div className="xylo-leaderboard-current-label">Your Current Ranking</div>
+            <div className="xylo-leaderboard-current-name">{userStats.name}</div>
+          </div>
+          <div className="xylo-leaderboard-current-rank">
+            <span className="xylo-leaderboard-current-ranknum">Rank</span>
+            <span className="xylo-leaderboard-current-rankval">#{userStats.rank}</span>
+          </div>
+          <div className="xylo-leaderboard-current-points">
+            <span className="xylo-leaderboard-current-pointsnum">{userStats.coins}</span>
+            <span className="xylo-leaderboard-current-pointstxt">Points</span>
+          </div>
         </div>
-        <div className="xylo-leaderboard-current-rank">
-          <span className="xylo-leaderboard-current-ranknum">Rank</span>
-          <span className="xylo-leaderboard-current-rankval">#{currentUser.rank}</span>
-        </div>
-        <div className="xylo-leaderboard-current-points">
-          <span className="xylo-leaderboard-current-pointsnum">{currentUser.points}</span>
-          <span className="xylo-leaderboard-current-pointstxt">Points</span>
-        </div>
-      </div>
+      )}
       <button className="xylo-leaderboard-full-btn">View Full Leaderboard</button>
     </div>
   );

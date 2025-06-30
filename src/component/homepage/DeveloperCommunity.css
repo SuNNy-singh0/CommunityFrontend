@@ -7,12 +7,20 @@
   
   /* Navbar */
   .hero-navbar {
-    display: flex
-    ;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1400px;
-        margin: 10px 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 10px 17px;
+    position: relative;
+  }
+  
+  /* Hamburger Menu Icon - Hidden by default on desktop */
+  .hero-hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1000;
   }
   
   .hero-logo {
@@ -50,6 +58,27 @@
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* User section styles */
+  .hero-user-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .hero-username {
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .hero-username:hover {
+    color: #4a90e2;
+    text-decoration: underline;
   }
   
   /* Hero Section */
@@ -213,16 +242,53 @@
 
   /* Navbar */
   .hero-navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  /* Show hamburger menu */
+  .hero-hamburger {
+    display: block;
+    order: 3;
+  }
+
+  /* Mobile navigation links */
+  .hero-links {
     flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 999;
+    display: none;
+    width: 100%;
     text-align: center;
   }
 
-  .hero-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+  /* Show menu when active */
+  .hero-links.active {
+    display: flex;
+  }
+
+  .hero-nav-item {
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Login button and user section positioning */
+  .hero-login-btn {
+    order: 2;
+  }
+  
+  .hero-user-section {
+    order: 2;
+    flex-direction: row;
+    gap: 8px;
   }
 
   /* Hero Section */
@@ -307,6 +373,22 @@
   .hero-logo img {
     width: 100px;
     height: 55px;
+  }
+  
+  /* Adjust navbar spacing */
+  .hero-navbar {
+    padding: 5px;
+    margin: 5px;
+  }
+  
+  /* Make hamburger icon more prominent */
+  .hero-hamburger {
+    font-size: 22px;
+  }
+  
+  /* Adjust mobile menu padding */
+  .hero-links {
+    padding: 15px 10px;
   }
 
   .hero-text h1 {
