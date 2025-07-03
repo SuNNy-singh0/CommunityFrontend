@@ -1,0 +1,76 @@
+.contest-form-xylo-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.contest-form-xylo-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.contest-form-xylo-form .contest-form-xylo-group {
+    margin-bottom: 1rem;
+}
+
+.contest-form-xylo-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: bold;
+}
+
+.contest-form-xylo-form input[type="text"],
+.contest-form-xylo-form input[type="date"],
+.contest-form-xylo-form input[type="time"],
+.contest-form-xylo-form input[type="number"],
+.contest-form-xylo-form input[type="file"],
+.contest-form-xylo-form textarea,
+.contest-form-xylo-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.contest-form-xylo-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contest-form-xylo-submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contest-form-xylo-submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.contest-form-xylo-message {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.contest-form-xylo-message.success {
+    color: green;
+}
+
+.contest-form-xylo-message.error {
+    color: red;
+}

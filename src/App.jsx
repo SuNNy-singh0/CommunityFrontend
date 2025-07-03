@@ -18,6 +18,10 @@ import CommunityChatUniqueXylo from './component/homepage/CommunityChatUniqueXyl
 import JobBoardUniqueZephyr from './component/homepage/JobBoardUniqueZephyr';
 import DreamTechRoleUniqueXylo from './component/homepage/DreamTechRoleUniqueXylo';
 import DevNavbar from './component/homepage/DevNavbar';
+import ContestForm from './component/contest/ContestForm';
+import AdminDashboardUniqueXylo from './component/adminpanel/AdminDashboardUniqueXylo';
+import AllUsersUniqueXylo from './component/adminpanel/AllUsersUniqueXylo';
+import ManageJobsUniqueXylo from './component/adminpanel/ManageJobsUniqueXylo';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -41,9 +45,13 @@ function App() {
           <Route path='/jobboard' element={<JobBoard/>} />
           <Route path='/job' element={<JobBoardUniqueZephyr/>} />
           <Route path='/newpage' element={<Homepage/>} />
+          <Route path='/contestform' element={<ContestForm/>} />
           <Route path='/techjob' element={<DreamTechRoleUniqueXylo/>} />
           <Route path='/communitychat/:communityname/:username' element={<CommunityChatUniqueXylo/>} />
           <Route path='/Community/:username/:userid' element={<CommunityChat/>} />
+          <Route path='/admin' element={<AdminDashboardUniqueXylo/>} />
+          <Route path='/admin/allusers' element={<AllUsersUniqueXylo/>} />
+          <Route path='/admin/managejobs' element={<ManageJobsUniqueXylo/>} />
         </Routes>
       </BrowserRouter>
     </>

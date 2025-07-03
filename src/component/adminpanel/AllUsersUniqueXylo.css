@@ -1,0 +1,293 @@
+/* General Layout */
+.xylo-all-users-layout {
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+/* Sidenav */
+.xylo-all-users-sidenav {
+  width: 260px;
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.xylo-all-users-sidenav-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.xylo-all-users-sidenav-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.xylo-all-users-sidenav-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.xylo-all-users-sidenav-link:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+.xylo-all-users-sidenav-link-active {
+  background-color: #4f46e5;
+  color: #ffffff;
+}
+
+.xylo-all-users-sidenav-logout-row {
+  margin-top: auto;
+}
+
+.xylo-all-users-sidenav-logout {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Main Content */
+.xylo-all-users-main {
+  flex-grow: 1;
+  padding: 24px 48px;
+}
+
+.xylo-all-users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.xylo-all-users-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.xylo-all-users-subtitle {
+  color: #6b7280;
+  margin: 4px 0 0;
+}
+
+.xylo-all-users-admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.xylo-all-users-notification-icon {
+  font-size: 20px;
+  color: #6b7280;
+}
+
+.xylo-all-users-admin-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.xylo-all-users-admin-name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.xylo-all-users-admin-role {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Controls */
+.xylo-all-users-controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.xylo-all-users-search-bar {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0 12px;
+}
+
+.xylo-all-users-search-bar input {
+  border: none;
+  outline: none;
+  padding: 12px 8px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.xylo-all-users-search-icon {
+  color: #9ca3af;
+}
+
+.xylo-all-users-filters {
+  display: flex;
+  gap: 16px;
+}
+
+.xylo-all-users-filter-btn, .xylo-all-users-export-btn {
+  padding: 10px 16px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.xylo-all-users-add-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4f46e5;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Table */
+.xylo-all-users-table-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.xylo-all-users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.xylo-all-users-table th, .xylo-all-users-table td {
+  padding: 16px 24px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+.xylo-all-users-table th {
+  background-color: #f9fafb;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.xylo-all-users-user-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.xylo-all-users-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.xylo-all-users-user-name {
+  font-weight: 600;
+}
+
+.xylo-all-users-user-handle {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.xylo-all-users-community-pill {
+  padding: 4px 12px;
+  border-radius: 12px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.xylo-all-users-coins-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #4b5563;
+}
+
+.xylo-all-users-coin-icon {
+  color: #f59e0b;
+}
+
+.xylo-all-users-view-profile {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Pagination */
+.xylo-all-users-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #6b7280;
+}
+
+.xylo-all-users-page-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.xylo-all-users-page-buttons button {
+  padding: 8px 14px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.xylo-all-users-page-buttons button.xylo-all-users-page-active {
+  background-color: #4f46e5;
+  color: white;
+  border-color: #4f46e5;
+}
+
+/* Footer */
+.xylo-all-users-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+}
+
+.xylo-all-users-footer-brand {
+  font-weight: 600;
+  color: #4f46e5;
+}

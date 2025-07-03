@@ -1,0 +1,398 @@
+/* Layout with Sidebar */
+.xylo-admin-dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8f9fb;
+}
+
+.xylo-admin-sidenav {
+  width: 220px;
+  background: #23235a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 0 24px 0;
+  min-height: 100vh;
+  box-shadow: 2px 0 18px #eaeaea40;
+}
+
+.xylo-admin-sidenav-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 32px;
+  margin-bottom: 36px;
+}
+
+.xylo-admin-sidenav-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #7e8fff;
+  background: #fff;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px #7e8fff25;
+}
+
+.xylo-admin-sidenav-appname {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.xylo-admin-sidenav-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 32px;
+}
+
+.xylo-admin-sidenav-link {
+  color: #b2b2c6;
+  text-decoration: none;
+  font-size: 1.04rem;
+  font-weight: 500;
+  padding: 10px 0 10px 12px;
+  border-radius: 8px 0 0 8px;
+  transition: background 0.18s, color 0.18s;
+  margin-right: 18px;
+}
+
+.xylo-admin-sidenav-link:hover,
+.xylo-admin-sidenav-link-active {
+  background: #fff;
+  color: #7e8fff;
+}
+
+.xylo-admin-sidenav-link-active {
+  font-weight: 700;
+}
+
+.xylo-admin-sidenav-logout-row {
+  padding-left: 32px;
+  margin-top: auto;
+}
+
+.xylo-admin-sidenav-logout {
+  background: #fff;
+  color: #ff8b8b;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 8px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #ff8b8b20;
+  transition: background 0.18s, color 0.18s;
+}
+.xylo-admin-sidenav-logout:hover {
+  background: #ff8b8b;
+  color: #fff;
+}
+
+/* Main Layout */
+.xylo-admin-dashboard-main {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #f8f9fb;
+  min-height: 100vh;
+  padding: 32px 24px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Row */
+.xylo-admin-dashboard-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.xylo-admin-dashboard-admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.xylo-admin-dashboard-admin-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid #e6eaff;
+  margin-right: 2px;
+}
+
+.xylo-admin-dashboard-admin-name {
+  font-weight: 600;
+  color: #23235a;
+  font-size: 1.08rem;
+}
+
+.xylo-admin-dashboard-admin-role {
+  font-size: 0.96rem;
+  color: #8a8ab3;
+}
+
+
+.xylo-admin-dashboard-header {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #23235a;
+}
+
+.xylo-admin-dashboard-stats-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.xylo-admin-dashboard-stat-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #eaeaea;
+  padding: 24px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 200px;
+  position: relative;
+}
+
+.xylo-admin-dashboard-stat-icon {
+  font-size: 2.2rem;
+  color: #7e8fff;
+  margin-bottom: 8px;
+}
+
+.xylo-admin-dashboard-stat-label {
+  font-size: 1.05rem;
+  color: #6b6b9b;
+  margin-bottom: 4px;
+}
+
+.xylo-admin-dashboard-stat-value {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #23235a;
+  margin-bottom: 6px;
+}
+
+.xylo-admin-dashboard-stat-trend {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.xylo-admin-stat-green {
+  color: #60d6b0;
+}
+
+/* Content Row */
+.xylo-admin-dashboard-content-row {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
+.xylo-admin-dashboard-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #eaeaea;
+  padding: 24px 24px 16px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+}
+
+.xylo-admin-dashboard-user-analytics {
+  flex: 2;
+  margin-right: 0px;
+}
+
+.xylo-admin-dashboard-registrations {
+  flex: 1.1;
+  min-width: 320px;
+}
+
+.xylo-admin-dashboard-card-title {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #23235a;
+  margin-bottom: 16px;
+}
+
+.xylo-admin-dashboard-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.xylo-admin-dashboard-viewall-btn {
+  background: #f3f6ff;
+  color: #7e8fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.98rem;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.xylo-admin-dashboard-viewall-btn:hover {
+  background: #e8edff;
+}
+
+/* User Table */
+.xylo-admin-dashboard-user-table {
+  width: 100%;
+}
+
+.xylo-admin-dashboard-user-table-header, .xylo-admin-dashboard-user-table-row {
+  display: grid;
+  grid-template-columns: 2.5fr 1.2fr 1fr 2fr 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.xylo-admin-dashboard-user-table-header {
+  font-weight: 600;
+  color: #7e8fff;
+  font-size: 1.04rem;
+  border-bottom: 1.5px solid #f1f1f5;
+  margin-bottom: 2px;
+}
+
+.xylo-admin-dashboard-user-table-row {
+  background: #f9faff;
+  border-radius: 10px;
+  margin-bottom: 7px;
+  font-size: 1.01rem;
+  color: #23235a;
+  box-shadow: 0 1px 6px #f2f2fa;
+}
+
+.xylo-admin-dashboard-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.xylo-admin-dashboard-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid #e6eaff;
+}
+
+.xylo-admin-dashboard-user-name {
+  font-weight: 600;
+  color: #23235a;
+  font-size: 1.02rem;
+}
+
+.xylo-admin-dashboard-user-email {
+  font-size: 0.96rem;
+  color: #8a8ab3;
+}
+
+.xylo-admin-dashboard-community-pill {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  margin-left: 4px;
+  margin-right: 2px;
+}
+
+.xylo-admin-dashboard-status-pill {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  margin-left: 4px;
+}
+
+/* Registrations */
+.xylo-admin-dashboard-registrations-list {
+  margin-top: 4px;
+}
+
+.xylo-admin-dashboard-registration-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9faff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 6px #f2f2fa;
+  padding: 8px 0 8px 0;
+}
+
+.xylo-admin-dashboard-registration-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.xylo-admin-dashboard-registration-time {
+  font-size: 0.97rem;
+  color: #8a8ab3;
+}
+
+/* Footer */
+.xylo-admin-dashboard-footer {
+  margin-top: 32px;
+  text-align: right;
+  color: #b2b2c6;
+  font-size: 1.04rem;
+  font-weight: 500;
+}
+
+.xylo-admin-dashboard-footer-brand {
+  color: #7e8fff;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+@media (max-width: 1200px) {
+  .xylo-admin-dashboard-content-row {
+    flex-direction: column;
+  }
+  .xylo-admin-dashboard-user-analytics, .xylo-admin-dashboard-registrations {
+    margin-right: 0;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .xylo-admin-dashboard-main {
+    padding: 10px 3vw 10px 3vw;
+  }
+  .xylo-admin-dashboard-stats-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .xylo-admin-dashboard-content-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .xylo-admin-dashboard-card {
+    padding: 14px 8px 10px 8px;
+  }
+}
