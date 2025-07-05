@@ -95,11 +95,11 @@ const AdminDashboardUniqueXylo = () => {
           <a className="xylo-admin-sidenav-link xylo-admin-sidenav-link-active" href="#">Dashboard</a>
           <a className="xylo-admin-sidenav-link" onClick={() => navigate('/admin/allusers')}>All Users</a>
           <a className="xylo-admin-sidenav-link" onClick={() => navigate('/admin/managejobs')}>Manage Jobs</a>
-          <a className="xylo-admin-sidenav-link" href="#">Manage Contests</a>
-          <a className="xylo-admin-sidenav-link" href="#">Daily MCQs</a>
+          <a className="xylo-admin-sidenav-link" onClick={() => navigate('/admin/managecontests')}>Manage Contests</a>
+          <a className="xylo-admin-sidenav-link" onClick={() => navigate('/admin/dailymcqs')}>Daily MCQs</a>
         </nav>
         <div className="xylo-admin-sidenav-logout-row">
-          <button className="xylo-admin-sidenav-logout">Logout</button>
+          <button className="xylo-admin-sidenav-logout" onClick={() => navigate('/login')}>Logout</button>
         </div>
       </aside>
       {/* Main Content */}

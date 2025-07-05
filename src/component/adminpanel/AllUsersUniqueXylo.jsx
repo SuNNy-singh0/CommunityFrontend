@@ -53,11 +53,11 @@ const AllUsersUniqueXylo = () => {
           <a className="xylo-all-users-sidenav-link" onClick={() => navigate('/admin')}>Dashboard</a>
           <a className="xylo-all-users-sidenav-link xylo-all-users-sidenav-link-active" >All Users</a>
           <a className="xylo-all-users-sidenav-link" onClick={() => navigate('/admin/managejobs')}>Manage Jobs</a>
-          <a className="xylo-all-users-sidenav-link" href="#">Manage Contests</a>
-          <a className="xylo-all-users-sidenav-link" href="#">Daily MCQs</a>
+          <a className="xylo-all-users-sidenav-link" onClick={() => navigate('/admin/managecontests')}>Manage Contests</a>
+          <a className="xylo-all-users-sidenav-link" onClick={() => navigate('/admin/dailymcqs')}>Daily MCQs</a>
         </nav>
         <div className="xylo-all-users-sidenav-logout-row">
-          <button className="xylo-all-users-sidenav-logout">Logout</button>
+          <button className="xylo-all-users-sidenav-logout"onClick={() => navigate('/login')}>Logout</button>
         </div>
       </aside>
 

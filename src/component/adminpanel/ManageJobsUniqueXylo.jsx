@@ -72,11 +72,11 @@ const ManageJobsUniqueXylo = () => {
           <a className="xylo-manage-jobs-sidenav-link" onClick={() => navigate('/admin')}>Dashboard</a>
           <a className="xylo-manage-jobs-sidenav-link" onClick={() => navigate('/admin/allusers')}>All Users</a>
           <a className="xylo-manage-jobs-sidenav-link xylo-manage-jobs-sidenav-link-active">Manage Jobs</a>
-          <a className="xylo-manage-jobs-sidenav-link" href="#">Manage Contests</a>
-          <a className="xylo-manage-jobs-sidenav-link" href="#">Daily MCQs</a>
+          <a className="xylo-manage-jobs-sidenav-link" onClick={() => navigate('/admin/managecontests')}>Manage Contests</a>
+          <a className="xylo-manage-jobs-sidenav-link" onClick={() => navigate('/admin/dailymcqs')}>Daily MCQs</a>
         </nav>
         <div className="xylo-manage-jobs-sidenav-logout-row">
-          <button className="xylo-manage-jobs-sidenav-logout">Logout</button>
+          <button className="xylo-manage-jobs-sidenav-logout" onClick={() => navigate('/login')}>Logout</button>
         </div>
       </aside>
       <main className="xylo-manage-jobs-main">

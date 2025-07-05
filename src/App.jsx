@@ -22,6 +22,8 @@ import ContestForm from './component/contest/ContestForm';
 import AdminDashboardUniqueXylo from './component/adminpanel/AdminDashboardUniqueXylo';
 import AllUsersUniqueXylo from './component/adminpanel/AllUsersUniqueXylo';
 import ManageJobsUniqueXylo from './component/adminpanel/ManageJobsUniqueXylo';
+import AdminManageContestUniqueXylo from './component/adminpanel/AdminManageContestUniqueXylo';
+import AdminDailyMcqsUniqueXylo from './component/adminpanel/AdminDailyMcqsUniqueXylo';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -52,6 +54,8 @@ function App() {
           <Route path='/admin' element={<AdminDashboardUniqueXylo/>} />
           <Route path='/admin/allusers' element={<AllUsersUniqueXylo/>} />
           <Route path='/admin/managejobs' element={<ManageJobsUniqueXylo/>} />
+          <Route path='/admin/managecontests' element={<AdminManageContestUniqueXylo/>} />
+          <Route path='/admin/dailymcqs' element={<AdminDailyMcqsUniqueXylo/>} />
         </Routes>
       </BrowserRouter>
     </>
