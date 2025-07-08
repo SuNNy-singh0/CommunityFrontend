@@ -53,7 +53,7 @@ const AdminManageContestUniqueXylo = () => {
     setDeletingId(id);
     setDeleteError(null);
     try {
-      await axios.delete(`http://13.201.100.143:8080/contests/delete/${id}`);
+      await axios.delete(`https://buyproduct4u.org/contests/delete/${id}`);
       setContests((prev) => prev.filter((c) => c.id !== id));
     } catch (err) {
       setDeleteError('Failed to delete contest. Please try again.');
@@ -68,7 +68,7 @@ const AdminManageContestUniqueXylo = () => {
     const fetchContests = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://13.201.100.143:8080/contests/all');
+        const response = await axios.get('https://buyproduct4u.org/contests/all');
         const validContests = response.data.filter(c => c.heading && c.date);
         setContests(validContests);
         setError(null);

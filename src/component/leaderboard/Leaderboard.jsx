@@ -23,7 +23,7 @@ const Leaderboard = () => {
   // Function to fetch top users
   const fetchTopUsers = async () => {
     try {
-      const response = await axios.get('http://13.201.100.143:8080/usercontrol/top-users');
+      const response = await axios.get('https://buyproduct4u.org/usercontrol/top-users');
       console.log('Received top users:', response.data);
       setTopPerformers(response.data.map((user, index) => ({
         name: user.name,
@@ -40,7 +40,7 @@ const Leaderboard = () => {
   // Function to fetch user rank and stats
   const fetchUserStats = async () => {
     try {
-      const response = await axios.get(`http://13.201.100.143:8080/usercontrol/user-rank/TestUser2`);
+      const response = await axios.get(`https://buyproduct4u.org/usercontrol/user-rank/TestUser2`);
       console.log('Received user stats:', response.data);
       setUserStats(response.data);
     } catch (error) {

@@ -55,7 +55,7 @@ const UserProfile = () => {
   const fetchUserDetails = async (currentUsername) => {
     try {
       setLoading(true);
-      const response = await fetch(`http://13.201.100.143:8080/usercontrol/${currentUsername}`, {
+      const response = await fetch(`https://buyproduct4u.org/usercontrol/${currentUsername}`, {
         credentials: 'include'
       });
       if (response.ok) {
@@ -73,7 +73,7 @@ const UserProfile = () => {
 
   const handleUpdateDetails = async () => {
     try {
-      const response = await fetch(`http://13.201.100.143:8080/usercontrol/${username}`, {
+      const response = await fetch(`https://buyproduct4u.org/usercontrol/${username}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -103,7 +103,7 @@ const UserProfile = () => {
 
     try {
       const endpoint = type === 'resume' ? 'upload-resume' : 'upload-profile-pic';
-      const response = await fetch(`http://13.201.100.143:8080/usercontrol/${username}/${endpoint}`, {
+      const response = await fetch(`https://buyproduct4u.org/usercontrol/${username}/${endpoint}`, {
         method: 'POST',
         credentials: 'include',
         body: formData
@@ -152,7 +152,7 @@ const UserProfile = () => {
     formData.append('file', file);
 
     try {
-      const response = await fetch(`http://13.201.100.143:8080/usercontrol/${username}/upload-resume`, {
+      const response = await fetch(`https://buyproduct4u.org/usercontrol/${username}/upload-resume`, {
         method: 'POST',
         credentials: 'include',
         body: formData

@@ -19,13 +19,13 @@ const AllUsersUniqueXylo = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const allUsersResponse = await axios.get('http://13.201.100.143:8080/rooms/alluser');
+        const allUsersResponse = await axios.get('https://buyproduct4u.org/rooms/alluser');
         const usersData = allUsersResponse.data;
 
         const detailedUsers = await Promise.all(
           usersData.map(async (user) => {
             try {
-              const userDetailsResponse = await axios.get(`http://13.201.100.143:8080/usercontrol/${user.username}`);
+              const userDetailsResponse = await axios.get(`https://buyproduct4u.org/usercontrol/${user.username}`);
               return { ...user, ...userDetailsResponse.data };
             } catch (error) {
               console.error(`Failed to fetch details for user ${user.username}`, error);
