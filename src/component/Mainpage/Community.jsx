@@ -21,7 +21,7 @@ function Community() {
         try {
             const token = getToken();
            
-            const response = await fetch(`http://localhost:8080/community/user/${username}/communities`, {
+            const response = await fetch(`http://13.201.100.143:8080/community/user/${username}/communities`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 },
@@ -44,7 +44,7 @@ function Community() {
 
         try {
             const token = getToken();
-            const response = await fetch('http://localhost:8080/community/join', {
+            const response = await fetch('http://13.201.100.143:8080/community/join', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

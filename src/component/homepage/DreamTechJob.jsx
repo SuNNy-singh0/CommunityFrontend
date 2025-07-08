@@ -56,10 +56,10 @@ const DreamTechJob = () => {
   const fetchFeaturedJobs = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:8080/jobs/featured");
+      const response = await axios.get("http://13.201.100.143:8080/jobs/featured");
       // If the featured endpoint doesn't exist, fallback to getting all jobs and taking the first 4
       if (!response.data || response.status !== 200) {
-        const allJobsResponse = await axios.get("http://localhost:8080/jobs/all");
+        const allJobsResponse = await axios.get("http://13.201.100.143:8080/jobs/all");
         setFeaturedJobs(allJobsResponse.data.slice(0, 4));
       } else {
         setFeaturedJobs(response.data.slice(0, 4));
@@ -69,7 +69,7 @@ const DreamTechJob = () => {
       console.error("Error fetching featured jobs:", error);
       // Fallback to fetching all jobs if featured endpoint fails
       try {
-        const allJobsResponse = await axios.get("http://localhost:8080/jobs/all");
+        const allJobsResponse = await axios.get("http://13.201.100.143:8080/jobs/all");
         setFeaturedJobs(allJobsResponse.data.slice(0, 4));
         setLoading(false);
       } catch (fallbackError) {
@@ -82,7 +82,7 @@ const DreamTechJob = () => {
 
   const fetchAllJobs = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/jobs/all");
+      const response = await axios.get("http://13.201.100.143:8080/jobs/all");
       setAllJobs(response.data);
     } catch (error) {
       console.error("Error fetching all jobs:", error);
@@ -93,7 +93,7 @@ const DreamTechJob = () => {
   const handleJobTypeFilter = useCallback((type) => {
     if (type) {
       try {
-        axios.get(`http://localhost:8080/jobs/filter-by-type?type=${type}`)
+        axios.get(`http://13.201.100.143:8080/jobs/filter-by-type?type=${type}`)
           .then(response => {
             setAllJobs(response.data);
             updateActiveFilters(type);

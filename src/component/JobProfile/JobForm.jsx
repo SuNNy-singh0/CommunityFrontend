@@ -75,7 +75,7 @@ const JobForm = () => {
       }
      console.log(formData);
       const response = await axios.post(
-        "http://localhost:8080/jobs/create",
+        "http://13.201.100.143:8080/jobs/create",
         formDataToSend,
         {
           headers: {

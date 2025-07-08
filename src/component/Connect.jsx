@@ -25,7 +25,7 @@ import { MdOutlineAttachment } from "react-icons/md";
 import { IoMdExit } from "react-icons/io";
 import { getmessages } from "../service/Service";
 
-const baseurl = "http://localhost:8080";
+const baseurl = "http://13.201.100.143:8080";
 
 const Connect = () => {
   const naviagate = useNavigate();

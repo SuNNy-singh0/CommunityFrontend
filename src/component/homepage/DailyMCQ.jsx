@@ -45,7 +45,7 @@ const DailyMCQ = ({ username }) => {
     for (const community of communities) {
       try {
         const response = await fetch(
-          `http://localhost:8080/mcq/attempt/status?community=${encodeURIComponent(community)}`,
+          `http://13.201.100.143:8080/mcq/attempt/status?community=${encodeURIComponent(community)}`,
           {
             headers: {
               'username': username
@@ -77,7 +77,7 @@ const DailyMCQ = ({ username }) => {
     
     for (const community of communities) {
       try {
-        const response = await fetch(`http://localhost:8080/mcq/daily/${community}`, {
+        const response = await fetch(`http://13.201.100.143:8080/mcq/daily/${community}`, {
           credentials: 'include',
           headers: {
             'Accept': 'application/json',
@@ -181,7 +181,7 @@ const DailyMCQ = ({ username }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/mcq/attempt?community=${community}&answer=${encodeURIComponent(selectedOptions[community])}`,
+        `http://13.201.100.143:8080/mcq/attempt?community=${community}&answer=${encodeURIComponent(selectedOptions[community])}`,
         {
           method: 'POST',
           credentials: 'include',

@@ -26,7 +26,7 @@ const AdminDailyMcqsUniqueXylo = () => {
   // Fetch MCQs
   useEffect(() => {
     setLoading(true);
-    axios.get("http://localhost:8080/mcq/all")
+    axios.get("http://13.201.100.143:8080/mcq/all")
       .then(res => {
         setMcqs(res.data);
         // Extract unique communities
@@ -82,7 +82,7 @@ const AdminDailyMcqsUniqueXylo = () => {
   // Delete MCQ
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/mcq/delete/${id}`);
+      await axios.delete(`http://13.201.100.143:8080/mcq/delete/${id}`);
       setMcqs(mcqs => mcqs.filter(mcq => mcq.id !== id));
     } catch (err) {
       alert("Failed to delete MCQ");

@@ -19,7 +19,7 @@ const ManageJobsUniqueXylo = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/jobs/all');
+        const response = await axios.get('http://13.201.100.143:8080/jobs/all');
         const formattedJobs = response.data.map(job => ({
           id: job.id,
           postimagelink: job.postimagelink,
@@ -56,7 +56,7 @@ const ManageJobsUniqueXylo = () => {
     e.stopPropagation(); // Prevent card's onClick from firing
     if (window.confirm('Are you sure you want to delete this job?')) {
       try {
-        await axios.delete(`http://localhost:8080/jobs/delete/${id}`);
+        await axios.delete(`http://13.201.100.143:8080/jobs/delete/${id}`);
         setJobs(prevJobs => prevJobs.filter(job => job.id !== id));
       } catch (err) {
         console.error('Failed to delete job:', err);

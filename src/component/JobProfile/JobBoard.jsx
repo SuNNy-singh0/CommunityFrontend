@@ -28,7 +28,7 @@ const JobBoard = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/jobs/all");
+      const response = await axios.get("http://13.201.100.143:8080/jobs/all");
       setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
@@ -55,7 +55,7 @@ const JobBoard = () => {
           return;
       }
 
-      const response = await axios.get(`http://localhost:8080/jobs/filter-by-date`, {
+      const response = await axios.get(`http://13.201.100.143:8080/jobs/filter-by-date`, {
         params: {
           startDate: startDate.toISOString().split('T')[0],
           endDate: today.toISOString().split('T')[0]

@@ -51,7 +51,7 @@ const ContestForm = () => {
 
         try {
             // IMPORTANT: Replace with your actual backend endpoint
-            const response = await axios.post('http://localhost:8080/contests/post', data, {
+            const response = await axios.post('http://13.201.100.143:8080/contests/post', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

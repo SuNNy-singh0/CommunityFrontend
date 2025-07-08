@@ -21,7 +21,7 @@ const getEventColor = (communityType) => {
   return colors[communityType] || 'xylo-community-event-badge-blue';
 };
 
-const baseurl = "http://localhost:8080";
+const baseurl = "http://13.201.100.143:8080";
 
 const CommunityChatUniqueXylo = () => {
   const navigate = useNavigate();
@@ -327,7 +327,7 @@ const CommunityChatUniqueXylo = () => {
 
     try {
       const token = getToken();
-      const response = await fetch('http://localhost:8080/community/join', {
+      const response = await fetch('http://13.201.100.143:8080/community/join', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

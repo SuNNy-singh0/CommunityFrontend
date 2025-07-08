@@ -12,7 +12,7 @@ function Stay() {
     useEffect(() => {
         const fetchContests = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/contests/all");
+                const response = await axios.get("http://13.201.100.143:8080/contests/all");
                 console.log('Contests data received:', response.data);
                 
                 if (response.data && response.data.length > 0) {

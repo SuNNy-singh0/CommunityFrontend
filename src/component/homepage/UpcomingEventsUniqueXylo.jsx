@@ -17,7 +17,7 @@ const UpcomingEventsUniqueXylo = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/contests/all');
+        const response = await axios.get('http://13.201.100.143:8080/contests/all');
         const upcomingEvents = response.data.filter(event => new Date(event.date) > new Date());
         setEvents(upcomingEvents);
       } catch (err) {
@@ -150,7 +150,7 @@ const RegistrationFormModal = ({ isOpen, onClose, eventName }) => {
     };
 
     try {
-      await axios.post('http://localhost:8080/event/create', payload);
+      await axios.post('http://13.201.100.143:8080/event/create', payload);
       setSubmitStatus('success');
       setFormData({ name: '', emailid: '', phonenumber: '' });
       setTimeout(() => {

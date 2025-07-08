@@ -16,7 +16,7 @@ import {
 } from "react-icons/fa";
 import "./CommunityChat.css"; // Import the CSS file
 
-const baseurl = "http://localhost:8080";
+const baseurl = "http://13.201.100.143:8080";
 const AVATAR_COUNT = 12;
 const AVATAR_BASE_PATH = '/avatars/';
 

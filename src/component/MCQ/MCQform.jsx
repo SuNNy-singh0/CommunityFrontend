@@ -41,7 +41,7 @@ const MCQform = () => {
                 date: formData.date
             };
 
-            const response = await axios.post('http://localhost:8080/mcq/upload', mcqData, {
+            const response = await axios.post('http://13.201.100.143:8080/mcq/upload', mcqData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'application/json'

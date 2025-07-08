@@ -40,7 +40,7 @@ const Login = () => {
     e.preventDefault();
     console.log(formData)
     try {
-      const response = await fetch('http://localhost:8080/rooms/createUser', {
+      const response = await fetch('http://13.201.100.143:8080/rooms/createUser', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const Login = () => {
     }
    
     try {
-      const response = await fetch('http://localhost:8080/rooms/login', {
+      const response = await fetch('http://13.201.100.143:8080/rooms/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginData),
@@ -101,7 +101,7 @@ const Login = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8080/rooms/reset-password?email=${resetEmail}&newPassword=${newPassword}`, {
+      const response = await fetch(`http://13.201.100.143:8080/rooms/reset-password?email=${resetEmail}&newPassword=${newPassword}`, {
         method: 'PUT',
       });
       if (response.ok) {
