@@ -254,26 +254,7 @@ const UserProfile = () => {
       {/* Main Content */}
       <div className="mainContent">
         {/* Header */}
-        <header className="header">
-          <img src="/logo.png" style={{
-            width:'120px',
-            height:'90px'
-          }}></img>
-          <h2 className="headerTitle">User Dashboard</h2>
-          <img src={userDetails.profilePicUrl || "/Usericon.png"}  style={{
-            width:'60px',
-            height:'60px',
-            border:'1px solid green',
-            padding:'8px',
-            borderRadius:'35px'
-          }}></img>
-          <h5>{userDetails.name || username} <br></br>
-          <span style={{
-            color:'green',
-            fontWeight:'500'
-          }}>Rating:{userDetails.coins}</span> 
-          </h5>
-        </header>
+      
 
         {/* Content Grid */}
         <main className="contentGrid">

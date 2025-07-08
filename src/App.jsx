@@ -24,6 +24,7 @@ import AllUsersUniqueXylo from './component/adminpanel/AllUsersUniqueXylo';
 import ManageJobsUniqueXylo from './component/adminpanel/ManageJobsUniqueXylo';
 import AdminManageContestUniqueXylo from './component/adminpanel/AdminManageContestUniqueXylo';
 import AdminDailyMcqsUniqueXylo from './component/adminpanel/AdminDailyMcqsUniqueXylo';
+import Footer from './component/homepage/Footer';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -40,13 +41,13 @@ function App() {
           <Route path='/Connect/:username/:userid' element={<Connect/>} />
           {/* Route to chat page */}
           
-          <Route path='/' element={<Mainpage />} />
+          <Route path='/mainpage' element={<Mainpage />} />
           <Route path='/profile' element={<UserProfile/>} />
           <Route path='/jobform' element={<JobForm/>} />
           <Route path='/MCQForm' element={<MCQform/>} />
           <Route path='/jobboard' element={<JobBoard/>} />
           <Route path='/job' element={<JobBoardUniqueZephyr/>} />
-          <Route path='/newpage' element={<Homepage/>} />
+          <Route path='/' element={<Homepage/>} />
           <Route path='/contestform' element={<ContestForm/>} />
           <Route path='/techjob' element={<DreamTechRoleUniqueXylo/>} />
           <Route path='/communitychat/:communityname/:username' element={<CommunityChatUniqueXylo/>} />
@@ -57,6 +58,7 @@ function App() {
           <Route path='/admin/managecontests' element={<AdminManageContestUniqueXylo/>} />
           <Route path='/admin/dailymcqs' element={<AdminDailyMcqsUniqueXylo/>} />
         </Routes>
+      <Footer></Footer>
       </BrowserRouter>
     </>
   );

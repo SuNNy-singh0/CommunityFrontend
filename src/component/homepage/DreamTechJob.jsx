@@ -226,57 +226,30 @@ const DreamTechJob = () => {
         <button className="xyloDreamTechJob_btn" onClick={() => navigate('/techjob')}>Explore All Opportunities</button>
       </div>
       <div className="xyloDreamTechJob_right">
-        {loading ? (
-          <div className="xyloDreamTechJob_loading">Loading job listings...</div>
-        ) : error ? (
-          <div className="xyloDreamTechJob_error">{error}</div>
-        ) : (
-          <>
-            <div className="xyloDreamTechJob_cardRow">
-              {dummyJobs.slice(0, 2).map((job, index) => {
-                const { company, role } = getCompanyAndRole(job);
-                return (
-                  <div 
-                    key={index} 
-                    className={`xyloDreamTechJob_card ${index === 0 ? 'xyloDreamTechJob_card--highlight' : ''}`}
-                    onClick={() => window.open(job.sourcelink, '_blank')}
-                  >
-                    {renderCompanyIcon(company)}
-                    <div className="xyloDreamTechJob_company">{company}</div>
-                    <div className="xyloDreamTechJob_role">{role}</div>
-                    {job.date && (
-                      <div className="xyloDreamTechJob_date">
-                        <FaClock size={12} /> {new Date(job.date).toLocaleDateString()}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-            <div className="xyloDreamTechJob_cardRow">
-              {dummyJobs.slice(2, 4).map((job, index) => {
-                const { company, role } = getCompanyAndRole(job);
-                return (
-                  <div 
-                    key={index + 2} 
-                    className="xyloDreamTechJob_card"
-                    onClick={() => window.open(job.sourcelink, '_blank')}
-                  >
-                    {renderCompanyIcon(company)}
-                    <div className="xyloDreamTechJob_company">{company}</div>
-                    <div className="xyloDreamTechJob_role">{role}</div>
-                    {job.date && (
-                      <div className="xyloDreamTechJob_date">
-                        <FaClock size={12} /> {new Date(job.date).toLocaleDateString()}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </>
-        )}
-      </div>
+  <div className="xyloDreamTechJob_cardGrid">
+    <div className="xyloDreamTechJob_card" onClick={() => window.open('https://careers.google.com/', '_blank')}>
+      <SiGoogle className="xyloDreamTechJob_companyIcon google" />
+      <div className="xyloDreamTechJob_company">Google</div>
+      <div className="xyloDreamTechJob_role">Senior Frontend Dev</div>
+    </div>
+    <div className="xyloDreamTechJob_card" onClick={() => window.open('https://careers.microsoft.com/', '_blank')}>
+      <FaMicrosoft className="xyloDreamTechJob_companyIcon msft" />
+      <div className="xyloDreamTechJob_company">Microsoft</div>
+      <div className="xyloDreamTechJob_role">Cloud Architect</div>
+    </div>
+    <div className="xyloDreamTechJob_card" onClick={() => window.open('https://www.amazon.jobs/', '_blank')}>
+      <SiAmazon className="xyloDreamTechJob_companyIcon amzn" />
+      <div className="xyloDreamTechJob_company">Amazon</div>
+      <div className="xyloDreamTechJob_role">Backend Engineer</div>
+    </div>
+    <div className="xyloDreamTechJob_card" onClick={() => window.open('https://www.metacareers.com/', '_blank')}>
+      <SiMeta className="xyloDreamTechJob_companyIcon meta" />
+      <div className="xyloDreamTechJob_company">Meta</div>
+      <div className="xyloDreamTechJob_role">ML Engineer</div>
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };

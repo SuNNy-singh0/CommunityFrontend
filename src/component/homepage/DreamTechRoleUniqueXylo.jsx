@@ -210,7 +210,7 @@ export default function DreamTechRoleUniqueXylo() {
           />
         </div>
       </div>
-      <div className="xylo-dream-filters-row">
+      {/* <div className="xylo-dream-filters-row">
         <div className="xylo-dream-filters">
           <span 
             className={`xylo-dream-filter ${activeFilter === 'All' ? 'xylo-dream-filter-active' : ''}`}
@@ -241,7 +241,7 @@ export default function DreamTechRoleUniqueXylo() {
           <button className="xylo-dream-btn xylo-dream-btn-outline">Sign In</button>
           <button className="xylo-dream-btn">Sign Up</button>
         </div>
-      </div>
+      </div> */}
       <div className="xylo-dream-main-content">
         <div className="xylo-dream-jobs">
           <div className="xylo-dream-jobs-header">
@@ -297,12 +297,12 @@ export default function DreamTechRoleUniqueXylo() {
                     ))}
                   </div>
                   <div className="xylo-dream-job-bottom-row">
-                    <div className="xylo-dream-job-badges">
+                    {/* <div className="xylo-dream-job-badges">
                       {job.badges.map((badge, i) => (
                         <span key={i} className="xylo-dream-job-badge">{badge}</span>
                       ))}
-                    </div>
-                    <div className="xylo-dream-job-salary">{job.salary}</div>
+                    </div> */}
+                    
                     <button className="xylo-dream-job-apply">View & Apply</button>
                   </div>
                 </div>
@@ -379,17 +379,7 @@ export default function DreamTechRoleUniqueXylo() {
           <button className="xylo-dream-btn xylo-dream-btn-purple">Subscribe Now</button>
         </div>
       </div>
-      <div className="xylo-dream-next-role">
-        <div className="xylo-dream-next-role-text">
-          <h4>Ready to Find Your Next Tech Role?</h4>
-          <p>Get a custom profile and fast-tracked personalized job recommendations. Connect with top recruiters, and accelerate your tech career.</p>
-          <button className="xylo-dream-btn xylo-dream-btn-outline">Create Free Profile</button>
-          <button className="xylo-dream-btn">Browse More Jobs</button>
-        </div>
-        <div className="xylo-dream-next-role-img">
-          <img src="https://img.freepik.com/free-vector/job-interview-illustration_23-2148196163.jpg?w=740&t=st=1689700000~exp=1689700600~hmac=7b5b6d2a7a5c0d7f1a9e7a9f9f5c1a5e" alt="interview" />
-        </div>
-      </div>
+     
     </div>
   );
 }

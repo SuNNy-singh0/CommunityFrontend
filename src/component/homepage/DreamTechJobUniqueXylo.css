@@ -83,6 +83,21 @@
   gap: 16px;
 }
 
+.xyloDreamTechJob_cardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .xyloDreamTechJob_cardGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+  }
+}
+
 .xyloDreamTechJob_cardRow {
   display: flex;
   gap: 18px;
@@ -158,6 +173,10 @@
   .xyloDreamTechJob_container {
     padding: 12px 2vw;
   }
+  .xyloDreamTechJob_cardGrid {
+    display: none;
+  }
+
   .xyloDreamTechJob_title {
     font-size: 1.2rem;
   }

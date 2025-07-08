@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./DeveloperCommunity.css";
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { MdOutlineLogin } from 'react-icons/md';
 import { RiLogoutCircleLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
@@ -43,12 +44,12 @@ function DevNavbar() {
         
         {/* Navigation Links */}
         <div className={`hero-links ${isMenuOpen ? 'active' : ''}`}>
-          <a href="#" className="hero-nav-item">Home</a>
-          <a href="#" className="hero-nav-item">Tech Communities</a>
-          <a href="#" className="hero-nav-item">Contests & MCQs</a>
-          <a href="#" className="hero-nav-item">Leaderboard</a>
-          <a href="#" className="hero-nav-item">Jobs & Internships</a>
-          <a href="#" className="hero-nav-item">Newsletter</a>
+          <Link to="/" className="hero-nav-item">Home</Link>
+          <Link to="/" className="hero-nav-item">Tech Communities</Link>
+          <Link to="/" className="hero-nav-item">Contests & MCQs</Link>
+          <Link to="/" className="hero-nav-item">Leaderboard</Link>
+          <Link to="/techjob" className="hero-nav-item">Jobs & Internships</Link>
+         
         </div>
         
         {/* Conditional Login/Logout Button */}

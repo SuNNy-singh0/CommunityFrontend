@@ -10,6 +10,7 @@ import MonthlyLeaderboardUniqueXylo from './MonthlyLeaderboardUniqueXylo'
 import JobAlertBannerUniqueXylo from './JobAlertBannerUniqueXylo'
 import UpcomingEventsUniqueXylo from './UpcomingEventsUniqueXylo'
 import { getUser } from '../../utils/auth'
+import Footer from './Footer'
 
 function Homepage() {
   const [username, setUsername] = useState(null);
@@ -33,6 +34,7 @@ function Homepage() {
     
     <DreamTechJob/>
     <JobAlertBannerUniqueXylo/>
+  
     </>
   )
 }
