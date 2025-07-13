@@ -137,5 +137,13 @@
     .mcq-subtitle {
       font-size: 14px;
     }
+    .mcq-grid {
+      display: grid
+  ;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 26px;
+      justify-items: center;
   }
+  }
+
   

@@ -17,7 +17,7 @@ const UpcomingEventsUniqueXylo = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('https://buyproduct4u.org/contests/all');
+        const response = await axios.get('https://asliengineers.com/contests/all');
         const upcomingEvents = response.data.filter(event => new Date(event.date) > new Date());
         setEvents(upcomingEvents);
       } catch (err) {
@@ -150,7 +150,7 @@ const RegistrationFormModal = ({ isOpen, onClose, eventName }) => {
     };
 
     try {
-      await axios.post('https://buyproduct4u.org/event/create', payload);
+      await axios.post('https://asliengineers.com/event/create', payload);
       setSubmitStatus('success');
       setFormData({ name: '', emailid: '', phonenumber: '' });
       setTimeout(() => {

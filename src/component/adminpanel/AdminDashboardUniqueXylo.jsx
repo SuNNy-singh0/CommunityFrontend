@@ -62,7 +62,7 @@ const AdminDashboardUniqueXylo = () => {
   useEffect(() => {
     const fetchRegistrations = async () => {
       try {
-        const response = await axios.get("https://buyproduct4u.org/event/all");
+        const response = await axios.get("https://asliengineers.com/event/all");
         const filteredData = response.data.filter(item => item.name && item.emailid && item.phonenumber && item.eventname);
         setRegistrations(filteredData);
         setLoading(false);
@@ -74,7 +74,7 @@ const AdminDashboardUniqueXylo = () => {
 
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("https://buyproduct4u.org/rooms/alluser");
+        const response = await axios.get("https://asliengineers.com/rooms/alluser");
         setUsers(response.data.slice(-5).reverse());
         setLoadingUsers(false);
       } catch (error) {

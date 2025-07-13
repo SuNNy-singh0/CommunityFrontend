@@ -19,13 +19,13 @@ const AllUsersUniqueXylo = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const allUsersResponse = await axios.get('https://buyproduct4u.org/rooms/alluser');
+        const allUsersResponse = await axios.get('https://asliengineers.com/rooms/alluser');
         const usersData = allUsersResponse.data;
 
         const detailedUsers = await Promise.all(
           usersData.map(async (user) => {
             try {
-              const userDetailsResponse = await axios.get(`https://buyproduct4u.org/usercontrol/${user.username}`);
+              const userDetailsResponse = await axios.get(`https://asliengineers.com/usercontrol/${user.username}`);
               return { ...user, ...userDetailsResponse.data };
             } catch (error) {
               console.error(`Failed to fetch details for user ${user.username}`, error);

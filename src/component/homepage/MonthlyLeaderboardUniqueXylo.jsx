@@ -28,8 +28,8 @@ const MonthlyLeaderboardUniqueXylo = () => {
     setError(null);
     try {
       const [topUsersResponse, userStatsResponse] = await Promise.all([
-        axios.get('https://buyproduct4u.org/usercontrol/top-users'),
-        axios.get(`https://buyproduct4u.org/usercontrol/user-rank/${currentUser.username}`)
+        axios.get('https://asliengineers.com/usercontrol/top-users'),
+        axios.get(`https://asliengineers.com/usercontrol/user-rank/${currentUser.username}`)
       ]);
       console.log(userStatsResponse)
       setTopPerformers(topUsersResponse.data.slice(0, 3).map((user, index) => ({

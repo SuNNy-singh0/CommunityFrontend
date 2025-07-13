@@ -19,7 +19,7 @@ const ManageJobsUniqueXylo = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get('https://buyproduct4u.org/jobs/all');
+        const response = await axios.get('https://asliengineers.com/jobs/all');
         const formattedJobs = response.data.map(job => ({
           id: job.id,
           postimagelink: job.postimagelink,

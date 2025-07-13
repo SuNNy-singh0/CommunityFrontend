@@ -47,7 +47,7 @@ const MCQPage = () => {
     for (const community of communities) {
       try {
         const response = await fetch(
-          `https://buyproduct4u.org/mcq/attempt/status?community=${encodeURIComponent(community)}`,
+          `https://asliengineers.com/mcq/attempt/status?community=${encodeURIComponent(community)}`,
           {
             headers: {
               'username': username
@@ -92,7 +92,7 @@ const MCQPage = () => {
         
         for (const community of communities) {
           try {
-            const response = await fetch(`https://buyproduct4u.org/mcq/daily/${community}`, {
+            const response = await fetch(`https://asliengineers.com/mcq/daily/${community}`, {
               credentials: 'include',
               headers: {
                 'Accept': 'application/json',
@@ -169,7 +169,7 @@ const MCQPage = () => {
 
     try {
       const response = await fetch(
-        `https://buyproduct4u.org/mcq/attempt?community=${encodeURIComponent(community)}&answer=${encodeURIComponent(selectedIndex)}`, 
+        `https://asliengineers.com/mcq/attempt?community=${encodeURIComponent(community)}&answer=${encodeURIComponent(selectedIndex)}`, 
         {
           method: 'POST',
           credentials: 'include',
