@@ -58,6 +58,10 @@
   .communitychat-header {
     padding: 6px 2px;
   }
+  .communitychat-chat {
+  
+    max-width: 350px;
+}
   .header-left, .header-right {
     gap: 4px;
   }
@@ -242,10 +246,7 @@
     flex: 1;
     margin-right: 0;
 }
-.communitychat-chat {
-  
-    max-width: 350px;
-}
+
 .mobilechatview{
     display: flex;
 }
