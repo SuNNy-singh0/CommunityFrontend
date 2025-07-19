@@ -25,6 +25,7 @@ import ManageJobsUniqueXylo from './component/adminpanel/ManageJobsUniqueXylo';
 import AdminManageContestUniqueXylo from './component/adminpanel/AdminManageContestUniqueXylo';
 import AdminDailyMcqsUniqueXylo from './component/adminpanel/AdminDailyMcqsUniqueXylo';
 import Footer from './component/homepage/Footer';
+import About from './component/homepage/About';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -57,6 +58,7 @@ function App() {
           <Route path='/admin/managejobs' element={<ManageJobsUniqueXylo/>} />
           <Route path='/admin/managecontests' element={<AdminManageContestUniqueXylo/>} />
           <Route path='/admin/dailymcqs' element={<AdminDailyMcqsUniqueXylo/>} />
+          <Route path='/about' element={<About/>}></Route>
         </Routes>
       <Footer></Footer>
       </BrowserRouter>

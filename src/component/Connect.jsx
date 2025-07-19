@@ -729,6 +729,7 @@ const Connect = () => {
           )}
           
           <div className="communitychat-input">
+            <div id="mobilechatview">
             <input
               type="file"
               ref={fileInputRef}
@@ -739,6 +740,7 @@ const Connect = () => {
             <button className="attach-button" onClick={() => fileInputRef.current?.click()}>
               <FaPaperclip size={20} />
             </button>
+            
             {fileName && !imagePreview && (
               <span className="file-name">{fileName}</span>
             )}
@@ -752,6 +754,7 @@ const Connect = () => {
               ref={inputRef}
               disabled={imagePreview !== null}
             />
+            </div>
             {!imagePreview && (
               <button 
                 className="communitychat-send"

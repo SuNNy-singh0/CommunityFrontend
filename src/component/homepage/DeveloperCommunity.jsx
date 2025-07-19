@@ -3,7 +3,16 @@ import { FaCode, FaEarlybirds, FaHome, FaReact } from "react-icons/fa";
 import "./DeveloperCommunity.css";
 import { IoLogoElectron } from "react-icons/io5";
 import DevNavbar from "./DevNavbar";
+import { useNavigate } from "react-router-dom";
+import { isAuthenticated } from "../../utils/auth";
 const DeveloperCommunity = () => {
+    const navigate = useNavigate();
+    const handleScroll = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     return (
         <>
         {/* <DevNavbar/> */}
@@ -24,8 +33,12 @@ const DeveloperCommunity = () => {
                         Tech Job – All In One Place!
                     </p>
                     <div className="hero-buttons">
-                        <button className="hero-join-btn">Join Now</button>
-                        <button className="hero-explore-btn">Explore More</button>
+                        {isAuthenticated() ? (
+                            <button className="hero-join-btn" onClick={() => handleScroll('tech-communities')}>Check Community</button>
+                        ) : (
+                            <button className="hero-join-btn" onClick={() => navigate('/login')}>Join Now</button>
+                        )}
+                        <button className="hero-explore-btn" onClick={() => navigate('/techjob')}>Explore Jobs</button>
                     </div>
                 </div>
 

@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 import "./JobAlertBannerUniqueXylo.css";
 
 const JobAlertBannerUniqueXylo = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = () => {
+    if (email) {
+      alert("Now you will receive job notifications from our side.");
+      setEmail("");
+    } else {
+      alert("Please enter your email address.");
+    }
+  };
   return (
     <div className="xylo-jobalert-mainwrap">
       <div className="xylo-jobalert-top">
@@ -17,8 +27,10 @@ const JobAlertBannerUniqueXylo = () => {
             type="email"
             className="xylo-jobalert-input"
             placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <button className="xylo-jobalert-btn">Subscribe Now</button>
+          <button className="xylo-jobalert-btn" onClick={handleSubscribe}>Subscribe Now</button>
         </div>
         <img
           className="xylo-jobalert-illustration"

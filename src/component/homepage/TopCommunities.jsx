@@ -29,6 +29,15 @@ const communityData = [
 
 const TopCommunities = ({ username }) => {
   const navigate = useNavigate();
+
+  const handleJoinCommunity = (communityName) => {
+    if (username) {
+      navigate(`/connect/${communityName}/${username}`);
+    } else {
+      alert('Please log in to join this community.');
+      navigate(`/login`);
+    }
+  };
   return (
     <div className="unique_top_communities_container">
       <h2 className="unique_top_communities_title">Top Communities</h2>
@@ -45,7 +54,7 @@ const TopCommunities = ({ username }) => {
             }}>
             <div className="unique_community_badge">
               <FaStar className="unique_community_star_icon" />
-              <span>12,500+ Developers</span>
+              <span>Free Rewards</span>
             </div>
 
             {/* Image */}
@@ -62,7 +71,7 @@ const TopCommunities = ({ username }) => {
           
               <button 
                 className="unique_community_join_btn"
-                onClick={() => navigate(`/connect/${community.name}/${username}`)}
+                onClick={() => handleJoinCommunity(community.name)}
               >
                 Join Community
               </button>

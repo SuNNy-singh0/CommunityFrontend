@@ -24,11 +24,17 @@ function Homepage() {
 
   return (
     <>
-    <DeveloperCommunity/>
-    <DailyMCQ username={username}/>
    
-    <TopCommunities username={username}/>
+    <DeveloperCommunity/>
+    
+    
+    <DailyMCQ username={username}/>
+    <div id="tech-communities">  <TopCommunities username={username}/></div>
+   
+    <div id="contests-mcqs">
     <UpcomingEventsUniqueXylo/>
+    </div>
+    
     <UpComingCommunity/>
     <MonthlyLeaderboardUniqueXylo/>
     

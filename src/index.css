@@ -67,3 +67,6 @@ border-radius: 7px;
   font-size: 1rem;
   text-transform: capitalize;
 }
+.body{
+  overflow-x: hidden;
+}

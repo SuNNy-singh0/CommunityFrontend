@@ -1,0 +1,18 @@
+.hero-nav-item {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer; /* Ensures the pointer cursor is shown for scroll links */
+}
+
+.hero-nav-item:hover {
+    background-color: #f0f0f0;
+}
+
+.hero-nav-item.active {
+    font-weight: bold;
+    font-size: 1.05em; /* Slightly increase font size */
+    color: #007bff;
+}

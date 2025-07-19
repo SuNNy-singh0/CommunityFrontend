@@ -156,9 +156,12 @@
     .unique_top_communities_slider {
      flex-direction: column;
     }
-  
+    
     .unique_community_card {
       width: 280px;
+    }
+    .unique_top_communities_container{
+      display: none !important;
     }
   
     .unique_top_communities_title {

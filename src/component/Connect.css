@@ -73,6 +73,17 @@
     padding: 6px 6px;
     min-width: 34px;
   }
+  .communitychat-input {
+    display: flex
+;
+    flex-direction: column;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    max-width: 350px;
+}
+.chat-messages {
+    padding: 0px !important;
+}
 }
 
 
@@ -231,7 +242,13 @@
     flex: 1;
     margin-right: 0;
 }
-
+.communitychat-chat {
+  
+    max-width: 350px;
+}
+.mobilechatview{
+    display: flex;
+}
 .chat-header {
     padding: 15px 20px;
     border-bottom: 1px solid #eee;
@@ -1072,6 +1089,7 @@
         padding: 10px;
         gap: 10px;
     }
+
     .job-opportunities-btn {
         padding: 5px 10px;
     }

@@ -1,7 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 import "./JobAlertBannerUniqueXylo.css";
 function Footer() {
+    const navigate = useNavigate();
+
+    const handleScroll = (sectionId) => {
+        if (window.location.pathname !== '/') {
+            navigate('/', { state: { scrollTo: sectionId } });
+        } else {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
     return (
       <>
        <div className="xylo-jobalert-footer" style={{marginTop: '30px'}}>
@@ -13,19 +26,19 @@ function Footer() {
           <div className="xylo-jobalert-footer-desc">
             Empowering Developers. Building Futures.<br/>
             <span className="xylo-jobalert-footer-descsub">
-              Your Go-To Platform For Tech Communities, Coding Challenges, Job Opportunities, And More!
+             Our Platform For Tech Communities, Coding Challenges, Job Opportunities, And More!
             </span>
           </div>
         </div>
         <div className="xylo-jobalert-footer-mid">
           <div className="xylo-jobalert-footer-linktitle">Quick Links</div>
           <ul className="xylo-jobalert-footer-links">
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Jobs & Internship</li>
-            <li>Communities</li>
-            <li>Contests</li>
-            <li>MCQs</li>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/about">About Us</NavLink></li>
+            <li><NavLink to="/techjob">Jobs & Internship</NavLink></li>
+            <li><a onClick={() => handleScroll('tech-communities')}>Communities</a></li>
+            <li><a onClick={() => handleScroll('contests-mcqs')}>Contests</a></li>
+            <li><a onClick={() => handleScroll('contests-mcqs')}>MCQs</a></li>
           </ul>
         </div>
         <div className="xylo-jobalert-footer-right">
