@@ -5,7 +5,10 @@
     background-color: #f5f7fb;
     overflow-x: hidden;
 }
-
+#mobilechatview{
+    display: flex;
+    width: 100%;
+}
 .communitychat-header {
     background-color: white;
     padding: 10px 32px;
@@ -247,9 +250,7 @@
     margin-right: 0;
 }
 
-.mobilechatview{
-    display: flex;
-}
+
 .chat-header {
     padding: 15px 20px;
     border-bottom: 1px solid #eee;
