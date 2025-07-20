@@ -1,9 +1,67 @@
 import React from "react";
 import "./About.css";
 import { FaUsers, FaLightbulb, FaHandshake, FaAward, FaChartLine } from "react-icons/fa";
-
+import { Helmet } from 'react-helmet-async';
 const About = () => {
   return (
+    <>
+    <Helmet>
+        {/* Page Title */}
+        <title>About Asli Engineers | Our Mission, Vision & Community Values</title>
+
+        {/* Meta Description */}
+        <meta
+          name="description"
+          content="Learn about Asli Engineers: our story, mission to empower engineers in India, what makes our community unique, and the core values that drive us. Discover how we support your engineering journey."
+        />
+
+        {/* Meta Keywords */}
+        <meta
+          name="keywords"
+          content="about asli engineers, engineering community, asli engineers mission, engineering platform, tech community India, engineering values, our story, Arpit Bhayani, engineering education, career growth, professional development"
+        />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.asliengineers.com/about" /> {/* Assuming your about page is at /about */}
+
+        {/* Open Graph Tags (for social media sharing) */}
+        <meta property="og:title" content="About Asli Engineers | Our Mission & Community Values" />
+        <meta property="og:description" content="Learn about Asli Engineers: our story, mission to empower engineers in India, what makes our community unique, and the core values that drive us. Discover how we support your engineering journey." />
+        <meta property="og:image" content="https://www.asliengineers.com/images/about-social-share.jpg" /> {/* Create a relevant image for social sharing of your About page */}
+        <meta property="og:url" content="https://www.asliengineers.com/about" />
+        <meta property="og:type" content="website" /> {/* 'website' is appropriate for an About page */}
+
+        {/* Schema.org Markup (JSON-LD) - for Organization information */}
+        {/* This helps search engines understand your entity (Asli Engineers) better */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Asli Engineers",
+              "url": "https://www.asliengineers.com",
+              "logo": "https://aslicommunitystorage.s3.ap-south-1.amazonaws.com/logo.png",
+              "description": "Asli Engineers is India's leading online community dedicated to empowering engineers through authentic knowledge sharing, career opportunities, and collaborative learning.",
+              "foundingDate": "2025", // Estimate or actual founding year
+              "founder": {
+                "@type": "Person",
+                "name": "Sunny | Ravindra | Ayush" // Based on previous context, mention the founder if public
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/asli-engineers", // Replace with actual social profiles
+                // "https://www.facebook.com/asliengineers",
+                // "https://www.youtube.com/channel/asliengineers"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-7827743220", // Your contact number, if public
+                "contactType": "customer service",
+                "email": "contact@asliengineers.com" // Your contact email
+              }
+            }
+          `}
+      </script>
+      </Helmet>
     <div className="about-asli-engineers">
       {/* Hero Banner */}
       <div className="about-hero-banner">
@@ -68,6 +126,7 @@ const About = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 

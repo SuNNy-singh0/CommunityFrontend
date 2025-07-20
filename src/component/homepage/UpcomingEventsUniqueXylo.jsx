@@ -5,7 +5,7 @@ import { FaRegCalendarAlt, FaRegBookmark, FaChevronLeft, FaChevronRight, FaShare
 import "./UpcomingEventsUniqueXylo.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { Helmet } from 'react-helmet-async';
 const UpcomingEventsUniqueXylo = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -97,6 +97,24 @@ const EventCard = ({ event, onRegisterClick }) => {
     const minutesLeft = Math.floor((timeLeft / 1000 / 60) % 60);
 
     return (
+      <>
+       <Helmet>
+        <meta
+          name="description"
+          content="Discover upcoming engineering contests, events, and workshops on Asli Engineers. Stay updated on the latest opportunities to learn, compete, and win prizes."
+        />
+        <meta
+          name="keywords"
+          content="upcoming engineering events, coding contests, tech workshops, engineering competitions, online events, programming challenges, Asli Engineers events, learning opportunities, tech events India"
+        />
+
+        {/* Open Graph Tags for social sharing */}
+        <meta property="og:title" content="Upcoming Engineering Contests & Events | Asli Engineers" />
+        <meta property="og:description" content="Discover upcoming engineering contests, events, and workshops on Asli Engineers. Stay updated on the latest opportunities to learn, compete, and win prizes." />
+        <meta property="og:image" content="https://www.asliengineers.com/images/events-social-share.jpg" /> {/* Create a relevant image for social sharing of events */}
+        <meta property="og:url" content="https://www.asliengineers.com/#contests-events" /> {/* Update this ID if your homepage uses a different one */}
+        <meta property="og:type" content="website" /> {/* Still 'website' as it's a section */}
+      </Helmet>
         <div className="xylo-events-card">
             <div className="xylo-events-imgwrap">
                 <img src={event.sourcelink} alt={event.heading} className="xylo-events-img" />
@@ -122,6 +140,7 @@ const EventCard = ({ event, onRegisterClick }) => {
                 <button onClick={() => onRegisterClick(event)} className="xylo-events-registerbtn" style={{background: '#2563eb'}}>Register Now</button>
             </div>
         </div>
+    </>
     );
 }
 

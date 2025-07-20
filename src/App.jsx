@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
 import JoinRoom from './component/JoinRoom';
 import Createroom from './component/Createroom';
@@ -32,36 +33,38 @@ function App() {
   return (
     <>
     
-      <BrowserRouter>
-      <DevNavbar/>
-        <Routes>
-          {/* Route to join the room */}
-          <Route path='/createroom' element={<Createroom />} />
-          <Route path='/login' element={<Login />} />
-        
-          <Route path='/Connect/:username/:userid' element={<Connect/>} />
-          {/* Route to chat page */}
-          
-          <Route path='/mainpage' element={<Mainpage />} />
-          <Route path='/profile' element={<UserProfile/>} />
-          <Route path='/jobform' element={<JobForm/>} />
-          <Route path='/MCQForm' element={<MCQform/>} />
-          <Route path='/jobboard' element={<JobBoard/>} />
-          <Route path='/job' element={<JobBoardUniqueZephyr/>} />
-          <Route path='/' element={<Homepage/>} />
-          <Route path='/contestform' element={<ContestForm/>} />
-          <Route path='/techjob' element={<DreamTechRoleUniqueXylo/>} />
-          <Route path='/communitychat/:communityname/:username' element={<CommunityChatUniqueXylo/>} />
-          <Route path='/Community/:username/:userid' element={<CommunityChat/>} />
-          <Route path='/admin' element={<AdminDashboardUniqueXylo/>} />
-          <Route path='/admin/allusers' element={<AllUsersUniqueXylo/>} />
-          <Route path='/admin/managejobs' element={<ManageJobsUniqueXylo/>} />
-          <Route path='/admin/managecontests' element={<AdminManageContestUniqueXylo/>} />
-          <Route path='/admin/dailymcqs' element={<AdminDailyMcqsUniqueXylo/>} />
-          <Route path='/about' element={<About/>}></Route>
-        </Routes>
-      <Footer></Footer>
-      </BrowserRouter>
+      <HelmetProvider>
+        <BrowserRouter>
+          <DevNavbar />
+          <Routes>
+            {/* Route to join the room */}
+            <Route path='/createroom' element={<Createroom />} />
+            <Route path='/login' element={<Login />} />
+
+            <Route path='/Connect/:username/:userid' element={<Connect />} />
+            {/* Route to chat page */}
+
+            <Route path='/mainpage' element={<Mainpage />} />
+            <Route path='/profile' element={<UserProfile />} />
+            <Route path='/jobform' element={<JobForm />} />
+            <Route path='/MCQForm' element={<MCQform />} />
+            <Route path='/jobboard' element={<JobBoard />} />
+            <Route path='/job' element={<JobBoardUniqueZephyr />} />
+            <Route path='/' element={<Homepage />} />
+            <Route path='/contestform' element={<ContestForm />} />
+            <Route path='/techjob' element={<DreamTechRoleUniqueXylo />} />
+            <Route path='/communitychat/:communityname/:username' element={<CommunityChatUniqueXylo />} />
+            <Route path='/Community/:username/:userid' element={<CommunityChat />} />
+            <Route path='/admin' element={<AdminDashboardUniqueXylo />} />
+            <Route path='/admin/allusers' element={<AllUsersUniqueXylo />} />
+            <Route path='/admin/managejobs' element={<ManageJobsUniqueXylo />} />
+            <Route path='/admin/managecontests' element={<AdminManageContestUniqueXylo />} />
+            <Route path='/admin/dailymcqs' element={<AdminDailyMcqsUniqueXylo />} />
+            <Route path='/about' element={<About />}></Route>
+          </Routes>
+          <Footer></Footer>
+        </BrowserRouter>
+      </HelmetProvider>
     </>
   );
 }

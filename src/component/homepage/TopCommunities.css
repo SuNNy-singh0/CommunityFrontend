@@ -160,9 +160,9 @@
     .unique_community_card {
       width: 280px;
     }
-    .unique_top_communities_container{
-      display: none !important;
-    }
+   .upcoming_community{
+    display: none !important;
+   }
   
     .unique_top_communities_title {
       font-size: 24px;

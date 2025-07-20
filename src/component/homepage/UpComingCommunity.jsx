@@ -26,7 +26,7 @@ function UpComingCommunity() {
     },
   ];
   return (
-     <div className="unique_top_communities_container">
+     <div className="unique_top_communities_container upcoming_community">
           <h2 className="unique_top_communities_title">Upcoming Communities</h2>
     
           <div className="unique_top_communities_slider">

@@ -12,7 +12,7 @@ import {
   FaEnvelope
 } from "react-icons/fa";
 import "./DreamTechRoleUniqueXylo.css";
-
+import { Helmet } from 'react-helmet-async';
 // No fallback data - we'll handle errors directly in the UI
 
 export default function DreamTechRoleUniqueXylo() {
@@ -187,6 +187,26 @@ export default function DreamTechRoleUniqueXylo() {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Tech Jobs & Internships for Engineers | Asli Engineers Job Board</title>
+        <meta
+          name="description"
+          content="Find your dream tech role with Asli Engineers. Explore the latest full-time jobs and internships in software development, MERN, DSA, Java, and more, updated daily."
+        />
+        <meta
+          name="keywords"
+          content="tech jobs, engineering jobs, software jobs, internship, tech roles, developer jobs, MERN jobs, DSA jobs, Java jobs, remote jobs, entry-level tech jobs, senior developer jobs, tech career, India tech jobs, asli engineers jobs"
+        />
+        <link rel="canonical" href="https://www.asliengineers.com/techjob" /> {/* Assuming this component is at /jobs */}
+
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Tech Jobs & Internships for Engineers | Asli Engineers Job Board" />
+        <meta property="og:description" content="Find your dream tech role with Asli Engineers. Explore the latest full-time jobs and internships in software development, MERN, DSA, Java, and more, updated daily." />
+        <meta property="og:image" content="https://www.asliengineers.com/images/jobs-listing-social.jpg" /> {/* Replace with a relevant image for the jobs page */}
+        <meta property="og:url" content="https://www.asliengineers.com/jobs" />
+        <meta property="og:type" content="website" />
+      </Helmet>
     <div className="xylo-dream-bg">
       {/* Image Popup */}
       {showPopup && (
@@ -381,5 +401,6 @@ export default function DreamTechRoleUniqueXylo() {
       </div>
      
     </div>
+  </>
   );
 }

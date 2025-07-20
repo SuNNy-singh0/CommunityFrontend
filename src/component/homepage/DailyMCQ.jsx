@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaClock, FaCoins } from "react-icons/fa";
 import "./DailyMCQ.css";
-
+import { Helmet } from 'react-helmet-async';
 const DailyMCQ = ({ username }) => {
   const communities = ["MERN", "DSA", "JAVA"];
   const [mcqs, setMcqs] = useState({
@@ -229,6 +229,25 @@ const DailyMCQ = ({ username }) => {
   }
 
   return (
+    <>
+    <Helmet>
+        <meta
+          name="description"
+          content="Test your engineering knowledge daily with MCQs in MERN, DSA, and JAVA. Improve consistency, earn coins, and get ahead with Asli Engineers' daily challenges."
+        />
+        <meta
+          name="keywords"
+          content="daily mcq, engineering quiz, coding challenge, MERN mcq, DSA mcq, JAVA mcq, technical questions, interview preparation, engineering practice, consistent learning, asli engineers"
+        />
+
+        {/* Open Graph Tags (for social media sharing like Facebook, LinkedIn) */}
+        <meta property="og:title" content="Daily Engineering MCQs | Master Your Skills Daily with Asli Engineers" />
+        <meta property="og:description" content="Test your engineering knowledge daily with MCQs in MERN, DSA, and JAVA. Improve consistency, earn coins, and get ahead with Asli Engineers' daily challenges." />
+        
+        <meta property="og:type" content="website" /> {/* Or 'article' if it's considered standalone content */}
+
+       
+      </Helmet>
     <div className="mcq-container">
       <div className="mcq-header">
         <h1 className="mcq-title">Stay <span>Consistent</span>. Solve <span>Daily</span>. Get <span>Ahead!</span></h1>
@@ -285,6 +304,7 @@ const DailyMCQ = ({ username }) => {
         })}
       </div>
     </div>
+    </>
   );
 };
 

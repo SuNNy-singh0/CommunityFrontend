@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar, FaComments } from "react-icons/fa";
 import "./TopCommunities.css";
 import { useNavigate } from 'react-router-dom';
-
+import { Helmet } from 'react-helmet-async';
 const communityData = [
   {
     id: "community_mongo",
@@ -39,6 +39,23 @@ const TopCommunities = ({ username }) => {
     }
   };
   return (
+    <>
+    <Helmet>
+        <meta
+          name="description"
+          content="Explore top engineering communities on Asli Engineers for DSA, MERN, and Java. Connect with experts, share knowledge, and collaborate to enhance your skills."
+        />
+        <meta
+          name="keywords"
+          content="engineering communities, DSA community, MERN community, Java community, data structures and algorithms, MERN stack, Java development, tech forums, online learning, skill development, peer learning, asli engineers"
+        />
+
+        {/* Open Graph Tags for social media sharing specific to the communities section */}
+        <meta property="og:title" content="Top Engineering Communities | Connect & Learn on Asli Engineers" />
+        <meta property="og:description" content="Explore top engineering communities on Asli Engineers for DSA, MERN, and Java. Connect with experts, share knowledge, and collaborate to enhance your skills." />
+       
+        <meta property="og:type" content="website" /> {/* Or 'collection' if it feels more like a list */}
+      </Helmet>
     <div className="unique_top_communities_container">
       <h2 className="unique_top_communities_title">Top Communities</h2>
 
@@ -87,6 +104,7 @@ const TopCommunities = ({ username }) => {
         
       </div>
     </div>
+    </>
   );
 };
 
