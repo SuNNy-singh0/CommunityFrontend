@@ -45,7 +45,7 @@ const DailyMCQ = ({ username }) => {
     for (const community of communities) {
       try {
         const response = await fetch(
-          `https://asliengineers.com/mcq/attempt/status?community=${encodeURIComponent(community)}`,
+          `/api/mcq/attempt/status?community=${encodeURIComponent(community)}`,
           {
             headers: {
               'username': username
@@ -77,7 +77,7 @@ const DailyMCQ = ({ username }) => {
     
     for (const community of communities) {
       try {
-        const response = await fetch(`https://asliengineers.com/mcq/daily/${community}`, {
+        const response = await fetch(`/api/mcq/daily/${community}`, {
           credentials: 'include',
           headers: {
             'Accept': 'application/json',
@@ -181,7 +181,7 @@ const DailyMCQ = ({ username }) => {
 
     try {
       const response = await fetch(
-        `https://asliengineers.com/mcq/attempt?community=${community}&answer=${encodeURIComponent(selectedOptions[community])}`,
+        `/api/mcq/attempt?community=${community}&answer=${encodeURIComponent(selectedOptions[community])}`,
         {
           method: 'POST',
           credentials: 'include',

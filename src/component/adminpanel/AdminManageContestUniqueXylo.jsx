@@ -68,7 +68,7 @@ const AdminManageContestUniqueXylo = () => {
     const fetchContests = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('https://asliengineers.com/contests/all');
+        const response = await axios.get('/api/contests/all');
         const validContests = response.data.filter(c => c.heading && c.date);
         setContests(validContests);
         setError(null);

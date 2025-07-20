@@ -1,6 +1,13 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/index.html" }
+      {
+        "source": "/api/:path*",
+        "destination": "https://3.108.251.255/:path*" 
+      },
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
     ]
   }
   

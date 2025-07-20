@@ -41,7 +41,7 @@ const MCQform = () => {
                 date: formData.date
             };
 
-            const response = await axios.post('https://asliengineers.com/mcq/upload', mcqData, {
+            const response = await axios.post('/api/mcq/upload', mcqData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'application/json'

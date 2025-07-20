@@ -58,7 +58,7 @@ export default function DreamTechRoleUniqueXylo() {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://asliengineers.com/jobs/all");
+      const response = await axios.get("/api/jobs/all");
       setJobs(response.data);
       setError(null);
     } catch (error) {

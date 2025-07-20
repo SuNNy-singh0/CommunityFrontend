@@ -23,7 +23,7 @@ const Leaderboard = () => {
   // Function to fetch top users
   const fetchTopUsers = async () => {
     try {
-      const response = await axios.get('https://asliengineers.com/usercontrol/top-users');
+      const response = await axios.get('/api/usercontrol/top-users');
       console.log('Received top users:', response.data);
       setTopPerformers(response.data.map((user, index) => ({
         name: user.name,

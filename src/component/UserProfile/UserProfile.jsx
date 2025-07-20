@@ -55,7 +55,7 @@ const UserProfile = () => {
   const fetchUserDetails = async (currentUsername) => {
     try {
       setLoading(true);
-      const response = await fetch(`https://asliengineers.com/usercontrol/${currentUsername}`, {
+      const response = await fetch(`/api/usercontrol/${currentUsername}`, {
         credentials: 'include'
       });
       if (response.ok) {
@@ -73,7 +73,7 @@ const UserProfile = () => {
 
   const handleUpdateDetails = async () => {
     try {
-      const response = await fetch(`https://asliengineers.com/usercontrol/${username}`, {
+      const response = await fetch(`/api/usercontrol/${username}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -103,7 +103,7 @@ const UserProfile = () => {
 
     try {
       const endpoint = type === 'resume' ? 'upload-resume' : 'upload-profile-pic';
-      const response = await fetch(`https://asliengineers.com/usercontrol/${username}/${endpoint}`, {
+      const response = await fetch(`/api/usercontrol/${username}/${endpoint}`, {
         method: 'POST',
         credentials: 'include',
         body: formData
@@ -152,7 +152,7 @@ const UserProfile = () => {
     formData.append('file', file);
 
     try {
-      const response = await fetch(`https://asliengineers.com/usercontrol/${username}/upload-resume`, {
+      const response = await fetch(`/api/usercontrol/${username}/upload-resume`, {
         method: 'POST',
         credentials: 'include',
         body: formData
